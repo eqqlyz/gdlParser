@@ -1,0 +1,411 @@
+graph: {
+title: "___crtsetenv"
+manhattan_edges: yes
+layoutalgorithm: mindepth
+finetuning: no
+layout_downfactor: 100
+layout_upfactor: 0
+layout_nearfactor: 0
+xlspace: 12
+yspace: 30
+// IDA palette
+colorentry 32: 0 0 0
+colorentry 33: 0 0 255
+colorentry 34: 0 0 255
+colorentry 35: 128 128 128
+colorentry 36: 128 128 128
+colorentry 37: 0 0 128
+colorentry 38: 0 0 128
+colorentry 39: 0 0 255
+colorentry 40: 0 0 255
+colorentry 41: 0 0 128
+colorentry 42: 0 128 0
+colorentry 43: 0 255 0
+colorentry 44: 0 128 0
+colorentry 45: 255 128 0
+colorentry 46: 0 128 0
+colorentry 47: 128 128 255
+colorentry 48: 255 0 0
+colorentry 49: 128 128 0
+colorentry 50: 1 1 1
+colorentry 51: 192 192 192
+colorentry 52: 0 0 255
+colorentry 53: 0 0 255
+colorentry 54: 0 0 255
+colorentry 55: 128 128 128
+colorentry 56: 128 128 255
+colorentry 57: 0 128 0
+colorentry 58: 0 0 128
+colorentry 59: 0 0 255
+colorentry 60: 128 0 128
+colorentry 61: 0 128 0
+colorentry 62: 0 128 0
+colorentry 63: 0 128 64
+colorentry 64: 0 0 128
+colorentry 65: 0 0 128
+colorentry 66: 255 0 255
+colorentry 67: 128 128 0
+colorentry 68: 0 0 128
+colorentry 69: 0 0 255
+colorentry 70: 0 0 128
+colorentry 71: 0 0 255
+colorentry 72: 0 0 0
+colorentry 73: 255 255 255
+colorentry 74: 192 192 192
+colorentry 75: 0 255 255
+colorentry 76: 0 0 0
+colorentry 77: 128 0 0
+colorentry 78: 128 128 128
+colorentry 79: 128 128 0
+colorentry 80: 255 0 255
+colorentry 81: 0 0 0
+colorentry 82: 0 0 255
+colorentry 83: 0 0 0
+node: { title: "0" label: "56___crtsetenv31:
+push    ebp
+mov     ebp, esp
+sub     esp, 14h
+mov     eax, [ebp+arg_0]
+push    ebx
+xor     ebx, ebx
+cmp     eax, ebx
+push    edi
+mov     [ebp+var_10], ebx
+jnz     short loc_4493C4" vertical_order: 0 }
+node: { title: "1" label: "call    __errno
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+or      eax, 0FFFFFFFFh
+jmp     short loc_449430" }
+node: { title: "2" label: "push    esi
+mov     esi, [eax]
+cmp     esi, ebx
+mov     [ebp+Src], esi
+jz      short loc_449421" }
+node: { title: "3" label: "push    3Dh             ; unsigned int
+push    esi             ; unsigned __int8 *
+call    __mbschr
+cmp     eax, ebx
+pop     ecx
+pop     ecx
+mov     [ebp+var_C], eax
+jz      short loc_449421" }
+node: { title: "4" label: "cmp     esi, eax
+jz      short loc_449421" }
+node: { title: "5" label: "xor     ecx, ecx
+cmp     [eax+1], bl
+mov     eax, envp
+setz    cl
+cmp     eax, dword_4E1ADC
+mov     [ebp+var_8], ecx
+jnz     short loc_449407" }
+node: { title: "6" label: "mov     edi, eax
+call    _copy_environ_0
+mov     envp, eax" }
+node: { title: "7" label: "cmp     eax, ebx
+jnz     short loc_44946B" }
+node: { title: "8" label: "cmp     [ebp+arg_4], ebx
+jz      short loc_449434" }
+node: { title: "9" label: "cmp     dword_4E1AE0, ebx
+jz      short loc_449434" }
+node: { title: "10" label: "call    ___wtomb_environ
+test    eax, eax
+jz      short loc_44946B" }
+node: { title: "11" label: "call    __errno
+mov     dword ptr [eax], 16h" }
+node: { title: "12" label: "or      eax, 0FFFFFFFFh" }
+node: { title: "13" label: "pop     esi" }
+node: { title: "14" label: "pop     edi
+pop     ebx
+leave
+retn" }
+node: { title: "15" label: "cmp     [ebp+var_8], ebx
+jnz     loc_4495D3" }
+node: { title: "16" label: "push    4               ; size_t
+call    __malloc_crt
+cmp     eax, ebx
+pop     ecx
+mov     envp, eax
+jz      short loc_44942C" }
+node: { title: "17" label: "mov     [eax], ebx
+cmp     dword_4E1AE0, ebx
+jnz     short loc_44946B" }
+node: { title: "18" label: "push    4               ; size_t
+call    __malloc_crt
+cmp     eax, ebx
+pop     ecx
+mov     dword_4E1AE0, eax
+jz      short loc_44942C" }
+node: { title: "19" label: "mov     [eax], ebx" }
+node: { title: "20" label: "mov     esi, envp
+cmp     esi, ebx
+mov     [ebp+var_14], esi
+jz      short loc_44942C" }
+node: { title: "21" label: "mov     edi, [ebp+var_C]
+sub     edi, [ebp+Src]
+push    [ebp+Src]
+call    _findenv
+mov     edi, eax
+cmp     edi, ebx
+pop     ecx
+jl      short loc_4494DF" }
+node: { title: "22" label: "cmp     [esi], ebx
+jz      short loc_4494DF" }
+node: { title: "23" label: "lea     esi, [esi+edi*4]
+push    dword ptr [esi] ; void *
+call    _free
+cmp     [ebp+var_8], ebx
+pop     ecx
+jnz     short loc_4494BC" }
+node: { title: "24" label: "mov     eax, [ebp+Src]
+mov     [esi], eax
+mov     eax, [ebp+arg_0]
+mov     [eax], ebx
+jmp     loc_449532" }
+node: { title: "25" label: "mov     eax, [esi+4]
+mov     [esi], eax
+mov     eax, [ebp+var_14]
+inc     edi
+lea     esi, [eax+edi*4]" }
+node: { title: "26" label: "cmp     [esi], ebx
+jnz     short loc_4494B0" }
+node: { title: "27" label: "cmp     edi, 3FFFFFFFh
+jnb     short loc_449532" }
+node: { title: "28" label: "push    4               ; Size
+push    edi             ; Count
+push    envp            ; Memory
+call    __recalloc_crt
+add     esp, 0Ch
+cmp     eax, ebx
+jz      short loc_449532" }
+node: { title: "29" label: "jmp     short loc_44952D" }
+node: { title: "30" label: "cmp     [ebp+var_8], ebx
+jnz     loc_4495C5" }
+node: { title: "31" label: "cmp     edi, ebx
+jge     short loc_4494EE" }
+node: { title: "32" label: "neg     edi" }
+node: { title: "33" label: "lea     eax, [edi+2]
+cmp     eax, edi
+jl      loc_44942C" }
+node: { title: "34" label: "cmp     eax, 3FFFFFFFh
+jnb     loc_44942C" }
+node: { title: "35" label: "push    eax             ; Size
+push    4               ; Count
+push    envp            ; Memory
+call    __recalloc_crt
+add     esp, 0Ch
+cmp     eax, ebx
+jz      loc_44942C" }
+node: { title: "36" label: "mov     edx, [ebp+Src]
+lea     ecx, [eax+edi*4]
+mov     [ecx], edx
+mov     [ecx+4], ebx
+mov     ecx, [ebp+arg_0]
+mov     [ecx], ebx" }
+node: { title: "37" label: "mov     envp, eax" }
+node: { title: "38" label: "cmp     [ebp+arg_4], ebx
+jz      short loc_4495AF" }
+node: { title: "39" label: "mov     esi, [ebp+Src]
+push    1               ; int
+push    esi             ; char *
+call    _strlen
+inc     eax
+pop     ecx
+inc     eax
+push    eax             ; size_t
+call    __calloc_crt
+mov     edi, eax
+cmp     edi, ebx
+pop     ecx
+pop     ecx
+jz      short loc_4495AF" }
+node: { title: "40" label: "push    esi             ; Src
+push    esi             ; char *
+call    _strlen
+inc     eax
+pop     ecx
+inc     eax
+push    eax             ; SizeInBytes
+push    edi             ; Dst
+call    _strcpy_s
+add     esp, 0Ch
+test    eax, eax
+jz      short loc_449578" }
+node: { title: "41" label: "push    ebx
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+call    __invoke_watson
+add     esp, 14h" }
+node: { title: "42" label: "mov     ecx, [ebp+var_8]
+mov     eax, edi
+sub     eax, esi
+add     eax, [ebp+var_C]
+mov     [eax], bl
+inc     eax
+neg     ecx
+sbb     ecx, ecx
+not     ecx
+and     ecx, eax
+push    ecx             ; lpValue
+push    edi             ; lpName
+call    ds:SetEnvironmentVariableA
+test    eax, eax
+jnz     short loc_4495A8" }
+node: { title: "43" label: "or      [ebp+var_10], 0FFFFFFFFh
+call    __errno
+mov     dword ptr [eax], 2Ah" }
+node: { title: "44" label: "push    edi             ; void *
+call    _free
+pop     ecx" }
+node: { title: "45" label: "cmp     [ebp+var_8], ebx
+jz      short loc_4495BD" }
+node: { title: "46" label: "push    [ebp+Src]       ; void *
+call    _free
+pop     ecx" }
+node: { title: "47" label: "mov     eax, [ebp+var_10]
+jmp     loc_44942F" }
+node: { title: "48" label: "push    [ebp+Src]       ; void *
+call    _free
+mov     eax, [ebp+arg_0]
+pop     ecx
+mov     [eax], ebx" }
+node: { title: "49" label: "xor     eax, eax
+jmp     loc_44942F" }
+// node 0
+edge: { sourcename: "0" targetname: "1" label: "false" color: red }
+edge: { sourcename: "0" targetname: "2" label: "true" color: darkgreen }
+// node 1
+edge: { sourcename: "1" targetname: "14" }
+// node 2
+edge: { sourcename: "2" targetname: "3" label: "false" color: red }
+edge: { sourcename: "2" targetname: "11" label: "true" color: darkgreen }
+// node 3
+edge: { sourcename: "3" targetname: "4" label: "false" color: red }
+edge: { sourcename: "3" targetname: "11" label: "true" color: darkgreen }
+// node 4
+edge: { sourcename: "4" targetname: "5" label: "false" color: red }
+edge: { sourcename: "4" targetname: "11" label: "true" color: darkgreen }
+// node 5
+edge: { sourcename: "5" targetname: "6" label: "false" color: red }
+edge: { sourcename: "5" targetname: "7" label: "true" color: darkgreen }
+// node 6
+edge: { sourcename: "6" targetname: "7" }
+// node 7
+edge: { sourcename: "7" targetname: "8" label: "false" color: red }
+edge: { sourcename: "7" targetname: "20" label: "true" color: darkgreen }
+// node 8
+edge: { sourcename: "8" targetname: "9" label: "false" color: red }
+edge: { sourcename: "8" targetname: "15" label: "true" color: darkgreen }
+// node 9
+edge: { sourcename: "9" targetname: "10" label: "false" color: red }
+edge: { sourcename: "9" targetname: "15" label: "true" color: darkgreen }
+// node 10
+edge: { sourcename: "10" targetname: "11" label: "false" color: red }
+edge: { sourcename: "10" targetname: "20" label: "true" color: darkgreen }
+// node 11
+edge: { sourcename: "11" targetname: "12" }
+// node 12
+edge: { sourcename: "12" targetname: "13" }
+// node 13
+edge: { sourcename: "13" targetname: "14" }
+// node 14
+// node 15
+edge: { sourcename: "15" targetname: "16" label: "false" color: red }
+edge: { sourcename: "15" targetname: "49" label: "true" color: darkgreen }
+// node 16
+edge: { sourcename: "16" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "16" targetname: "17" label: "false" color: red }
+// node 17
+edge: { sourcename: "17" targetname: "18" label: "false" color: red }
+edge: { sourcename: "17" targetname: "20" label: "true" color: darkgreen }
+// node 18
+edge: { sourcename: "18" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "18" targetname: "19" label: "false" color: red }
+// node 19
+edge: { sourcename: "19" targetname: "20" }
+// node 20
+edge: { sourcename: "20" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "20" targetname: "21" label: "false" color: red }
+// node 21
+edge: { sourcename: "21" targetname: "22" label: "false" color: red }
+edge: { sourcename: "21" targetname: "30" label: "true" color: darkgreen }
+// node 22
+edge: { sourcename: "22" targetname: "23" label: "false" color: red }
+edge: { sourcename: "22" targetname: "30" label: "true" color: darkgreen }
+// node 23
+edge: { sourcename: "23" targetname: "24" label: "false" color: red }
+edge: { sourcename: "23" targetname: "26" label: "true" color: darkgreen }
+// node 24
+edge: { sourcename: "24" targetname: "38" }
+// node 25
+edge: { sourcename: "25" targetname: "26" }
+// node 26
+edge: { sourcename: "26" targetname: "25" label: "true" color: darkgreen }
+edge: { sourcename: "26" targetname: "27" label: "false" color: red }
+// node 27
+edge: { sourcename: "27" targetname: "28" label: "false" color: red }
+edge: { sourcename: "27" targetname: "38" label: "true" color: darkgreen }
+// node 28
+edge: { sourcename: "28" targetname: "29" label: "false" color: red }
+edge: { sourcename: "28" targetname: "38" label: "true" color: darkgreen }
+// node 29
+edge: { sourcename: "29" targetname: "37" }
+// node 30
+edge: { sourcename: "30" targetname: "31" label: "false" color: red }
+edge: { sourcename: "30" targetname: "48" label: "true" color: darkgreen }
+// node 31
+edge: { sourcename: "31" targetname: "32" label: "false" color: red }
+edge: { sourcename: "31" targetname: "33" label: "true" color: darkgreen }
+// node 32
+edge: { sourcename: "32" targetname: "33" }
+// node 33
+edge: { sourcename: "33" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "33" targetname: "34" label: "false" color: red }
+// node 34
+edge: { sourcename: "34" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "34" targetname: "35" label: "false" color: red }
+// node 35
+edge: { sourcename: "35" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "35" targetname: "36" label: "false" color: red }
+// node 36
+edge: { sourcename: "36" targetname: "37" }
+// node 37
+edge: { sourcename: "37" targetname: "38" }
+// node 38
+edge: { sourcename: "38" targetname: "39" label: "false" color: red }
+edge: { sourcename: "38" targetname: "45" label: "true" color: darkgreen }
+// node 39
+edge: { sourcename: "39" targetname: "40" label: "false" color: red }
+edge: { sourcename: "39" targetname: "45" label: "true" color: darkgreen }
+// node 40
+edge: { sourcename: "40" targetname: "41" label: "false" color: red }
+edge: { sourcename: "40" targetname: "42" label: "true" color: darkgreen }
+// node 41
+edge: { sourcename: "41" targetname: "42" }
+// node 42
+edge: { sourcename: "42" targetname: "43" label: "false" color: red }
+edge: { sourcename: "42" targetname: "44" label: "true" color: darkgreen }
+// node 43
+edge: { sourcename: "43" targetname: "44" }
+// node 44
+edge: { sourcename: "44" targetname: "45" }
+// node 45
+edge: { sourcename: "45" targetname: "46" label: "false" color: red }
+edge: { sourcename: "45" targetname: "47" label: "true" color: darkgreen }
+// node 46
+edge: { sourcename: "46" targetname: "47" }
+// node 47
+edge: { sourcename: "47" targetname: "13" }
+// node 48
+edge: { sourcename: "48" targetname: "49" }
+// node 49
+edge: { sourcename: "49" targetname: "13" }
+}

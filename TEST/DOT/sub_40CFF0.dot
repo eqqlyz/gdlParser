@@ -1,0 +1,581 @@
+digraph G{
+Node0 [label = "58sub_40CFF031:
+sub     esp, 48h
+mov     eax, ___security_cookie
+xor     eax, esp
+mov     [esp+48h+var_4], eax
+push    ebx
+mov     ebx, [esp+4Ch+arg_4]
+push    esi
+push    edi
+mov     edi, [esp+54h+arg_8]
+movsx   ecx, byte ptr [edi+2]
+xor     eax, eax
+sub     ecx, 4Dh
+cmp     ecx, 15h
+mov     [esp+54h+var_48], ebx
+mov     [esp+54h+var_38], eax
+mov     [esp+54h+var_34], eax
+jnb     short loc_40D056"]
+Node1 [label = "push    edi
+call    sub_41DD10
+mov     edx, [esp+58h+arg_0]
+mov     esi, eax
+push    esi
+push    ebx
+push    edx
+call    sub_40CFF0
+push    esi
+mov     edi, eax
+call    r0
+add     esp, 14h
+mov     eax, edi
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node2 [label = "mov     esi, [esp+54h+arg_0]
+cmp     esi, eax
+mov     ecx, [edi+10h]
+mov     [esp+54h+var_40], ecx
+jz      short loc_40D06B"]
+Node3 [label = "mov     [esp+54h+var_44], ebx
+jmp     short loc_40D07D"]
+Node4 [label = "push    ebx
+mov     ecx, offset asc_456E64; \"$\"
+call    sub_40B160
+add     esp, 4
+mov     [esp+54h+var_44], eax"]
+Node5 [label = "mov     edx, [esp+54h+var_44]
+lea     eax, [esi+1]
+push    ebp
+push    eax             ; int
+push    edx             ; char *
+mov     [esp+60h+var_2C], eax
+call    sub_40ACB0
+mov     ebp, eax
+add     esp, 8
+cmp     ebp, 0FFFFFFFFh
+mov     [esp+58h+hObject], ebp
+jz      loc_40D510"]
+Node6 [label = "test    esi, esi
+push    0               ; int
+push    10h             ; nNumberOfBytesToRead
+jz      loc_40D29C"]
+Node7 [label = "lea     eax, [esp+60h+Buffer]
+push    eax             ; lpBuffer
+push    ebp             ; hFile
+call    sub_440190
+mov     esi, eax
+add     esp, 10h
+cmp     esi, 10h
+mov     ebx, edx
+jnz     loc_40D21B"]
+Node8 [label = "test    ebx, ebx
+jnz     loc_40D21B"]
+Node9 [label = "cmp     [esp+58h+Buffer], 0FFh
+jz      loc_40D21B"]
+Node10 [label = "mov     ecx, [esp+58h+var_40]
+movsx   edx, byte ptr [ecx+2]
+movsx   eax, [esp+58h+var_12]
+add     edx, 4Dh
+cmp     edx, eax
+jnz     loc_40D21B"]
+Node11 [label = "push    2               ; dwMoveMethod
+push    0FFFFFFFFh      ; int
+push    0FFFFFFF8h      ; lDistanceToMove
+push    ebp             ; hFile
+call    sub_43FAE0
+add     esp, 10h
+test    edx, edx
+jl      short loc_40D114"]
+Node12 [label = "jg      short loc_40D10E"]
+Node13 [label = "cmp     eax, 8
+jbe     short loc_40D114"]
+Node14 [label = "lea     eax, [esp+58h+var_38]
+jmp     short loc_40D118"]
+Node15 [label = "lea     eax, [esp+58h+Buffer]"]
+Node16 [label = "push    0               ; int
+push    8               ; nNumberOfBytesToRead
+push    eax             ; lpBuffer
+push    ebp             ; hFile
+call    sub_440190
+add     esp, 10h"]
+Node17 [label = "mov     ecx, [edi+0Ch]
+mov     edx, [edi+8]
+push    ecx
+push    edx
+push    7
+call    ktn
+mov     ecx, [edi+0Ch]
+mov     ebx, [edi+8]
+mov     esi, eax
+add     esp, 0Ch
+xor     eax, eax
+xor     edx, edx
+test    ecx, ecx
+mov     [esp+58h+lpNewFileName], ebx
+mov     [esp+58h+var_20], ecx
+jl      short loc_40D19C"]
+Node18 [label = "jg      short loc_40D160"]
+Node19 [label = "test    ebx, ebx
+jbe     short loc_40D19C"]
+Node20 [label = "jmp     short loc_40D160"]
+Node21 [label = "mov     ecx, [edi+eax*4+10h]
+mov     ebp, [ecx+8]
+mov     ebx, [esp+58h+var_38]
+add     ebx, ebp
+mov     [esp+58h+var_38], ebx
+mov     ecx, [ecx+0Ch]
+adc     [esp+58h+var_34], ecx
+mov     [esi+eax*8+10h], ebx
+mov     ecx, [esp+58h+var_34]
+mov     [esi+eax*8+14h], ecx
+add     eax, 1
+adc     edx, 0
+cmp     edx, [esp+58h+var_20]
+jl      short loc_40D160"]
+Node22 [label = "jg      short loc_40D198"]
+Node23 [label = "cmp     eax, [esp+58h+lpNewFileName]
+jb      short loc_40D160"]
+Node24 [label = "mov     ebp, [esp+58h+hObject]"]
+Node25 [label = "movsx   edx, byte ptr [esi+2]
+push    edx
+call    sub_40F3A0
+mov     ecx, [esi+0Ch]
+add     esp, 4
+push    ecx
+mov     ecx, [esi+8]
+push    ecx
+push    edx
+push    eax
+call    __allmul
+push    edx
+push    eax
+lea     edx, [esi+10h]
+push    edx
+push    ebp
+call    sub_40AE30
+push    esi
+mov     ebx, eax
+call    r0
+push    ebp             ; hObject
+call    sub_4405D0
+add     esp, 18h
+cmp     eax, 0FFFFFFFFh
+jz      loc_40D45D"]
+Node26 [label = "cmp     ebx, 0FFFFFFFFh
+jnz     loc_40D30E"]
+Node27 [label = "cmp     [esp+58h+arg_0], 0
+jnz     short loc_40D1FB"]
+Node28 [label = "mov     ecx, [esp+58h+var_44]
+push    ecx             ; char *
+call    j__remove
+add     esp, 4"]
+Node29 [label = "mov     edx, [esp+58h+var_48]
+push    edx
+call    orr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node30 [label = "push    ebp             ; hObject
+call    sub_4405D0
+add     esp, 4
+cmp     esi, 8
+jnz     short loc_40D24F"]
+Node31 [label = "test    ebx, ebx
+jnz     short loc_40D24F"]
+Node32 [label = "mov     ecx, [esp+58h+var_48]
+push    edi
+push    ecx
+push    ebx
+call    sub_40CFF0
+add     esp, 0Ch
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node33 [label = "cmp     [esp+58h+Buffer], 0FFh
+jnz     short loc_40D27B"]
+Node34 [label = "mov     edx, [esp+58h+var_48]
+push    edx             ; char
+push    offset aNoAppendToQ2Fi; \"no append to q2 file format: %s\"
+call    sub_40F340
+add     esp, 8
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node35 [label = "mov     eax, off_4630C4
+push    eax
+call    krr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node36 [label = "mov     ecx, [esp+60h+var_40]
+mov     [esp+60h+Buffer], 0FEh
+mov     [esp+60h+var_13], 20h
+mov     dl, [ecx+2]
+mov     ecx, [edi+8]
+add     dl, 4Dh
+cmp     byte ptr [edi+3], 1
+mov     [esp+60h+var_12], dl
+mov     edx, [edi+0Ch]
+setz    al
+mov     [esp+60h+var_11], al
+lea     eax, [esp+60h+Buffer]
+push    eax
+push    ebp
+mov     [esp+68h+var_10], 0
+mov     [esp+68h+var_C], ecx
+mov     [esp+68h+var_8], edx
+call    sub_40AE30
+add     esp, 10h
+cmp     eax, 0FFFFFFFFh
+jnz     loc_40D126"]
+Node37 [label = "push    ebp             ; hObject
+call    sub_4405D0
+push    ebx
+call    orr
+add     esp, 8
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node38 [label = "mov     eax, [esp+58h+var_44]
+mov     [esp+58h+lpExistingFileName], eax
+mov     eax, [esp+58h+var_48]
+push    eax
+mov     ecx, offset asc_456E04; \"#\"
+mov     [esp+5Ch+lpNewFileName], eax
+call    sub_40B160
+add     esp, 4
+cmp     [esp+58h+arg_0], 0
+mov     ebp, eax
+mov     [esp+58h+var_48], ebp
+jz      short loc_40D33F"]
+Node39 [label = "mov     [esp+58h+var_44], ebp
+jmp     short loc_40D351"]
+Node40 [label = "push    ebp
+mov     ecx, offset asc_456E64; \"$\"
+call    sub_40B160
+add     esp, 4
+mov     [esp+58h+var_44], eax"]
+Node41 [label = "mov     ecx, [esp+58h+var_2C]
+mov     edx, [esp+58h+var_44]
+push    ecx             ; int
+push    edx             ; char *
+call    sub_40ACB0
+mov     esi, eax
+add     esp, 8
+cmp     esi, 0FFFFFFFFh
+mov     [esp+58h+hObject], esi
+jnz     short loc_40D38A"]
+Node42 [label = "push    ebp
+call    orr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node43 [label = "push    2               ; dwMoveMethod
+push    0               ; int
+push    0               ; lDistanceToMove
+push    esi             ; hFile
+call    sub_43FAE0
+push    0
+push    200000h
+call    sub_411680
+mov     ecx, [edi+8]
+mov     [esp+70h+var_40], eax
+mov     eax, [edi+0Ch]
+xor     ebp, ebp
+add     esp, 18h
+xor     ebx, ebx
+test    eax, eax
+mov     [esp+58h+var_18], ebp
+mov     [esp+58h+var_2C], ecx
+mov     [esp+58h+var_28], eax
+jl      short loc_40D430"]
+Node44 [label = "jg      short loc_40D3D0"]
+Node45 [label = "test    ecx, ecx
+jbe     short loc_40D430"]
+Node46 [label = "lea     esp, [esp+0]"]
+Node47 [label = "mov     esi, [edi+ebp*4+10h]
+movsx   eax, byte ptr [esi+2]
+push    eax
+call    sub_40F3A0
+mov     ecx, [esi+0Ch]
+add     esp, 4
+push    ecx
+mov     ecx, [esi+8]
+push    ecx
+push    edx
+push    eax
+call    __allmul
+push    edx
+mov     edx, [esp+5Ch+hObject]
+push    eax
+mov     eax, [esp+60h+var_40]
+add     esi, 10h
+push    esi
+push    edx
+push    eax
+mov     ecx, ebx
+call    sub_40BA30
+add     esp, 14h
+mov     ebx, eax
+mov     eax, [esp+58h+var_18]
+add     ebp, 1
+adc     eax, 0
+cmp     eax, [esp+58h+var_28]
+mov     [esp+58h+var_18], eax
+jl      short loc_40D3D0"]
+Node48 [label = "jg      short loc_40D428"]
+Node49 [label = "cmp     ebp, [esp+58h+var_2C]
+jb      short loc_40D3D0"]
+Node50 [label = "test    ebx, ebx
+mov     esi, [esp+58h+hObject]
+jl      short loc_40D445"]
+Node51 [label = "mov     ecx, [esp+58h+var_40]
+mov     eax, ebx
+cdq
+push    edx
+push    eax
+push    ecx
+push    esi
+call    sub_40AE30
+add     esp, 10h
+mov     ebx, eax"]
+Node52 [label = "mov     edx, [esp+58h+var_40]
+push    edx
+call    sub_40F950
+push    esi             ; hObject
+call    sub_4405D0
+add     esp, 8
+cmp     eax, 0FFFFFFFFh
+jnz     short loc_40D47D"]
+Node53 [label = "mov     eax, [esp+58h+var_48]
+push    eax
+call    orr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node54 [label = "test    ebx, ebx
+mov     ebp, [esp+58h+arg_0]
+jz      short loc_40D489"]
+Node55 [label = "mov     eax, ebx
+jmp     short loc_40D49F"]
+Node56 [label = "test    ebp, ebp
+jnz     short loc_40D4DF"]
+Node57 [label = "mov     ecx, [esp+58h+var_48]
+mov     edx, [esp+58h+var_44]
+push    ecx             ; lpNewFileName
+push    edx             ; lpExistingFileName
+call    sub_40A930
+add     esp, 8"]
+Node58 [label = "cmp     eax, 0FFFFFFFFh
+jnz     short loc_40D4DF"]
+Node59 [label = "test    ebp, ebp
+jnz     short loc_40D4BF"]
+Node60 [label = "mov     eax, [esp+58h+var_44]
+push    eax             ; char *
+call    j__remove
+mov     ecx, [esp+5Ch+lpExistingFileName]
+push    ecx             ; char *
+call    j__remove
+add     esp, 8"]
+Node61 [label = "mov     edx, [esp+58h+var_48]
+push    edx
+call    orr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node62 [label = "mov     ebx, [esp+58h+lpNewFileName]
+mov     esi, [esp+58h+lpExistingFileName]
+push    1               ; dwFlags
+push    ebx             ; lpNewFileName
+push    esi             ; lpExistingFileName
+call    ds:MoveFileExA
+sub     eax, 1
+cmp     eax, 0FFFFFFFFh
+jnz     short loc_40D52C"]
+Node63 [label = "test    ebp, ebp
+jnz     short loc_40D510"]
+Node64 [label = "mov     eax, [esp+58h+var_48]
+push    eax             ; char *
+call    j__remove
+push    esi             ; char *
+call    j__remove
+add     esp, 8"]
+Node65 [label = "push    ebx
+call    orr
+add     esp, 4
+pop     ebp
+pop     edi
+pop     esi
+pop     ebx
+mov     ecx, [esp+48h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node66 [label = "mov     ecx, [esp+58h+var_4]
+pop     ebp
+mov     eax, edi
+pop     edi
+pop     esi
+pop     ebx
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 48h
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node2 [color = "green"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node4 [color = "green"]
+Node3 -> Node5 [color = "black"]
+Node4 -> Node5 [color = "black"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node65 [color = "green"]
+Node6 -> Node7 [color = "red"]
+Node6 -> Node36 [color = "green"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node30 [color = "green"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node30 [color = "green"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node30 [color = "green"]
+Node10 -> Node11 [color = "red"]
+Node10 -> Node30 [color = "green"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node15 [color = "green"]
+Node12 -> Node13 [color = "red"]
+Node12 -> Node14 [color = "green"]
+Node13 -> Node14 [color = "red"]
+Node13 -> Node15 [color = "green"]
+Node14 -> Node16 [color = "black"]
+Node15 -> Node16 [color = "black"]
+Node16 -> Node17 [color = "black"]
+Node17 -> Node18 [color = "red"]
+Node17 -> Node25 [color = "green"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node21 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node25 [color = "green"]
+Node20 -> Node21 [color = "black"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node21 [color = "green"]
+Node22 -> Node23 [color = "red"]
+Node22 -> Node24 [color = "green"]
+Node23 -> Node21 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node24 -> Node25 [color = "black"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node53 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node26 -> Node38 [color = "green"]
+Node27 -> Node28 [color = "red"]
+Node27 -> Node29 [color = "green"]
+Node28 -> Node29 [color = "black"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node33 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node33 [color = "green"]
+Node33 -> Node34 [color = "red"]
+Node33 -> Node35 [color = "green"]
+Node36 -> Node17 [color = "green"]
+Node36 -> Node37 [color = "red"]
+Node38 -> Node39 [color = "red"]
+Node38 -> Node40 [color = "green"]
+Node39 -> Node41 [color = "black"]
+Node40 -> Node41 [color = "black"]
+Node41 -> Node42 [color = "red"]
+Node41 -> Node43 [color = "green"]
+Node43 -> Node44 [color = "red"]
+Node43 -> Node51 [color = "green"]
+Node44 -> Node45 [color = "red"]
+Node44 -> Node47 [color = "green"]
+Node45 -> Node46 [color = "red"]
+Node45 -> Node51 [color = "green"]
+Node46 -> Node47 [color = "black"]
+Node47 -> Node48 [color = "red"]
+Node47 -> Node47 [color = "green"]
+Node48 -> Node49 [color = "red"]
+Node48 -> Node50 [color = "green"]
+Node49 -> Node47 [color = "green"]
+Node49 -> Node50 [color = "red"]
+Node50 -> Node51 [color = "red"]
+Node50 -> Node52 [color = "green"]
+Node51 -> Node52 [color = "black"]
+Node52 -> Node53 [color = "red"]
+Node52 -> Node54 [color = "green"]
+Node54 -> Node55 [color = "red"]
+Node54 -> Node56 [color = "green"]
+Node55 -> Node58 [color = "black"]
+Node56 -> Node57 [color = "red"]
+Node56 -> Node62 [color = "green"]
+Node57 -> Node58 [color = "black"]
+Node58 -> Node59 [color = "red"]
+Node58 -> Node62 [color = "green"]
+Node59 -> Node60 [color = "red"]
+Node59 -> Node61 [color = "green"]
+Node60 -> Node61 [color = "black"]
+Node62 -> Node63 [color = "red"]
+Node62 -> Node66 [color = "green"]
+Node63 -> Node64 [color = "red"]
+Node63 -> Node65 [color = "green"]
+Node64 -> Node65 [color = "black"]
+}

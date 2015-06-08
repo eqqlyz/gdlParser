@@ -1,0 +1,269 @@
+digraph G{
+Node0 [label = "56__dospawn31:
+push    ebp
+mov     ebp, esp
+sub     esp, 68h
+mov     eax, [ebp+arg_0]
+push    ebx
+xor     ebx, ebx
+cmp     eax, ebx
+push    edi
+mov     [ebp+dwCreationFlags], ebx
+mov     [ebp+var_1], bl
+jz      short loc_450127"]
+Node1 [label = "cmp     eax, 1
+jz      short loc_450127"]
+Node2 [label = "jle     short loc_45012F"]
+Node3 [label = "cmp     eax, 3
+jle     short loc_450127"]
+Node4 [label = "cmp     eax, 4
+jnz     short loc_45012F"]
+Node5 [label = "mov     [ebp+var_1], 1"]
+Node6 [label = "mov     eax, [ebp+arg_8]
+mov     [ebp+lpCommandLine], eax
+jmp     short loc_450167"]
+Node7 [label = "call    ___doserrno
+mov     [eax], ebx
+call    __errno
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+or      eax, 0FFFFFFFFh
+jmp     loc_450304"]
+Node8 [label = "inc     eax
+cmp     [eax], bl
+jnz     short loc_450156"]
+Node9 [label = "lea     ecx, [eax+1]
+cmp     [ecx], bl
+jz      short loc_450167"]
+Node10 [label = "mov     byte ptr [eax], 20h
+mov     eax, ecx"]
+Node11 [label = "cmp     [eax], bl
+jnz     short loc_450156"]
+Node12 [label = "push    esi
+push    44h
+pop     esi
+push    esi             ; size_t
+lea     eax, [ebp+StartupInfo]
+push    ebx             ; int
+push    eax             ; void *
+call    _memset
+mov     [ebp+StartupInfo.cb], esi
+mov     esi, uNumber
+add     esp, 0Ch
+cmp     esi, ebx
+jz      short loc_4501B5"]
+Node13 [label = "lea     eax, [esi-1]"]
+Node14 [label = "mov     edx, eax
+and     edx, 1Fh
+imul    edx, 28h
+mov     ecx, eax
+sar     ecx, 5
+mov     ecx, dword_4E5140[ecx*4]
+cmp     [ecx+edx+4], bl
+jnz     short loc_4501AD"]
+Node15 [label = "dec     esi
+dec     eax
+cmp     esi, ebx
+jnz     short loc_45018D"]
+Node16 [label = "cmp     esi, ebx
+jl      loc_4502F5"]
+Node17 [label = "cmp     esi, 3332h
+jnb     loc_4502F5"]
+Node18 [label = "mov     eax, esi
+imul    eax, 5
+add     eax, 4
+mov     [ebp+StartupInfo.cbReserved2], ax
+movzx   eax, ax
+push    1               ; int
+push    eax             ; size_t
+call    __calloc_crt
+cmp     eax, ebx
+pop     ecx
+pop     ecx
+mov     [ebp+StartupInfo.lpReserved2], eax
+jz      loc_4502F5"]
+Node19 [label = "cmp     esi, ebx
+mov     [eax], esi
+mov     eax, [ebp+StartupInfo.lpReserved2]
+lea     ecx, [eax+4]
+lea     edi, [eax+esi+4]
+mov     [ebp+var_8], ebx
+jle     short loc_450231"]
+Node20 [label = "mov     eax, [ebp+var_8]
+mov     edx, eax
+and     eax, 1Fh
+imul    eax, 28h
+sar     edx, 5
+add     eax, dword_4E5140[edx*4]
+mov     dl, [eax+4]
+test    dl, 10h
+jnz     short loc_45021D"]
+Node21 [label = "mov     [ecx], dl
+mov     eax, [eax]
+mov     [edi], eax
+jmp     short loc_450222"]
+Node22 [label = "mov     [ecx], bl
+or      dword ptr [edi], 0FFFFFFFFh"]
+Node23 [label = "inc     [ebp+var_8]
+inc     ecx
+add     edi, 4
+cmp     [ebp+var_8], esi
+jl      short loc_4501F8"]
+Node24 [label = "mov     eax, [ebp+StartupInfo.lpReserved2]"]
+Node25 [label = "cmp     [ebp+var_1], bl
+jz      short loc_450262"]
+Node26 [label = "lea     ecx, [eax+4]
+xor     edx, edx
+lea     eax, [eax+esi+4]"]
+Node27 [label = "cmp     esi, 3
+jge     short loc_450248"]
+Node28 [label = "mov     edi, esi
+jmp     short loc_45024B"]
+Node29 [label = "push    3
+pop     edi"]
+Node30 [label = "cmp     edx, edi
+jge     short loc_45025B"]
+Node31 [label = "mov     [ecx], bl
+or      dword ptr [eax], 0FFFFFFFFh
+inc     edx
+inc     ecx
+add     eax, 4
+jmp     short loc_45023F"]
+Node32 [label = "mov     [ebp+dwCreationFlags], 8"]
+Node33 [label = "call    ___doserrno
+mov     [eax], ebx
+lea     eax, [ebp+ProcessInformation]
+push    eax             ; lpProcessInformation
+lea     eax, [ebp+StartupInfo]
+push    eax             ; lpStartupInfo
+push    ebx             ; lpCurrentDirectory
+push    [ebp+lpEnvironment]; lpEnvironment
+push    [ebp+dwCreationFlags]; dwCreationFlags
+push    1               ; bInheritHandles
+push    ebx             ; lpThreadAttributes
+push    ebx             ; lpProcessAttributes
+push    [ebp+lpCommandLine]; lpCommandLine
+push    [ebp+lpApplicationName]; lpApplicationName
+call    ds:CreateProcessA
+mov     esi, eax
+call    ds:GetLastError
+push    [ebp+StartupInfo.lpReserved2]; void *
+mov     edi, eax
+call    _free
+cmp     esi, ebx
+pop     ecx
+jnz     short loc_4502A8"]
+Node34 [label = "push    edi
+call    __dosmaperr
+pop     ecx
+jmp     short loc_450300"]
+Node35 [label = "cmp     [ebp+arg_0], 2
+jnz     short $LN63"]
+Node36 [label = "push    ebx             ; int
+call    __exit"]
+Node37 [label = "cmp     [ebp+arg_0], ebx
+mov     esi, ds:CloseHandle
+jnz     short loc_4502DC"]
+Node38 [label = "push    0FFFFFFFFh      ; dwMilliseconds
+push    [ebp+ProcessInformation.hProcess]; hHandle
+call    ds:WaitForSingleObject
+lea     eax, [ebp+ExitCode]
+push    eax             ; lpExitCode
+push    [ebp+ProcessInformation.hProcess]; hProcess
+call    ds:GetExitCodeProcess
+mov     ebx, [ebp+ExitCode]
+jmp     short loc_4502E2"]
+Node39 [label = "cmp     [ebp+arg_0], 4
+jnz     short loc_4502E9"]
+Node40 [label = "push    [ebp+ProcessInformation.hProcess]; hObject
+call    esi ; CloseHandle
+jmp     short loc_4502EC"]
+Node41 [label = "mov     ebx, [ebp+ProcessInformation.hProcess]"]
+Node42 [label = "push    [ebp+ProcessInformation.hThread]; hObject
+call    esi ; CloseHandle
+mov     eax, ebx
+jmp     short loc_450303"]
+Node43 [label = "call    __errno
+mov     dword ptr [eax], 0Ch"]
+Node44 [label = "or      eax, 0FFFFFFFFh"]
+Node45 [label = "pop     esi"]
+Node46 [label = "pop     edi
+pop     ebx
+leave
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node6 [color = "green"]
+Node1 -> Node2 [color = "red"]
+Node1 -> Node6 [color = "green"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node7 [color = "green"]
+Node3 -> Node4 [color = "red"]
+Node3 -> Node6 [color = "green"]
+Node4 -> Node5 [color = "red"]
+Node4 -> Node7 [color = "green"]
+Node5 -> Node6 [color = "black"]
+Node6 -> Node11 [color = "black"]
+Node7 -> Node46 [color = "black"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node8 [color = "green"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node11 [color = "green"]
+Node10 -> Node11 [color = "black"]
+Node11 -> Node8 [color = "green"]
+Node11 -> Node12 [color = "red"]
+Node12 -> Node13 [color = "red"]
+Node12 -> Node17 [color = "green"]
+Node13 -> Node14 [color = "black"]
+Node14 -> Node15 [color = "red"]
+Node14 -> Node16 [color = "green"]
+Node15 -> Node14 [color = "green"]
+Node15 -> Node16 [color = "red"]
+Node16 -> Node17 [color = "red"]
+Node16 -> Node43 [color = "green"]
+Node17 -> Node18 [color = "red"]
+Node17 -> Node43 [color = "green"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node43 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node25 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node20 -> Node22 [color = "green"]
+Node21 -> Node23 [color = "black"]
+Node22 -> Node23 [color = "black"]
+Node23 -> Node20 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node24 -> Node25 [color = "black"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node33 [color = "green"]
+Node26 -> Node27 [color = "black"]
+Node27 -> Node28 [color = "red"]
+Node27 -> Node29 [color = "green"]
+Node28 -> Node30 [color = "black"]
+Node29 -> Node30 [color = "black"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node32 [color = "green"]
+Node31 -> Node27 [color = "black"]
+Node32 -> Node33 [color = "black"]
+Node33 -> Node34 [color = "red"]
+Node33 -> Node35 [color = "green"]
+Node34 -> Node44 [color = "black"]
+Node35 -> Node36 [color = "red"]
+Node35 -> Node37 [color = "green"]
+Node37 -> Node38 [color = "red"]
+Node37 -> Node39 [color = "green"]
+Node38 -> Node40 [color = "black"]
+Node39 -> Node40 [color = "red"]
+Node39 -> Node41 [color = "green"]
+Node40 -> Node42 [color = "black"]
+Node41 -> Node42 [color = "black"]
+Node42 -> Node45 [color = "black"]
+Node43 -> Node44 [color = "black"]
+Node44 -> Node45 [color = "black"]
+Node45 -> Node46 [color = "black"]
+}

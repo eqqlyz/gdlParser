@@ -1,0 +1,574 @@
+digraph G{
+Node0 [label = "58sub_43C8A031:
+sub     esp, 104h
+mov     eax, ___security_cookie
+xor     eax, esp
+mov     [esp+104h+var_4], eax
+mov     eax, [esp+104h+arg_4]
+push    esi
+mov     esi, ecx
+mov     ecx, [esp+108h+arg_0]
+cmp     ecx, 1
+jnz     short loc_43C93F"]
+Node1 [label = "test    eax, eax
+jnz     short loc_43C93F"]
+Node2 [label = "mov     al, [esi+2]
+cmp     al, 0Ah
+jnz     short loc_43C8F0"]
+Node3 [label = "call    sub_43C850
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node4 [label = "cmp     al, 0F5h
+jnz     loc_43CD4E"]
+Node5 [label = "mov     ecx, [esi+8]
+mov     al, [ecx]
+cmp     al, 3Ah
+jz      short loc_43C934"]
+Node6 [label = "test    al, al
+jz      short loc_43C934"]
+Node7 [label = "push    ecx
+lea     ecx, [esp+10Ch+var_104]
+push    offset asc_457AF4; \":\"
+push    ecx
+call    sub_4113D0
+push    eax
+call    ks
+add     esp, 10h
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node8 [label = "push    esi
+call    r1
+jmp     loc_43CD59"]
+Node9 [label = "cmp     ecx, 2
+jnz     short loc_43C992"]
+Node10 [label = "test    eax, eax
+jnz     short loc_43C992"]
+Node11 [label = "mov     al, [esi+2]
+test    al, al
+jl      short loc_43C982"]
+Node12 [label = "cmp     al, 63h
+jg      short loc_43C982"]
+Node13 [label = "mov     al, [esi+3]
+movzx   ecx, al
+test    ecx, ecx
+jz      short loc_43C982"]
+Node14 [label = "cmp     al, 4
+jb      short loc_43C966"]
+Node15 [label = "mov     ecx, 4"]
+Node16 [label = "lea     edx, aSupg[ecx] ; \" supg\"
+push    1
+push    edx
+call    sn
+add     esp, 8
+push    eax
+call    sub_40FE40
+jmp     loc_43CD59"]
+Node17 [label = "mov     eax, dword_4E4FEC
+push    eax
+call    sub_40FE40
+jmp     loc_43CD59"]
+Node18 [label = "cmp     ecx, 3
+jnz     short loc_43C9A6"]
+Node19 [label = "test    eax, eax
+jnz     short loc_43C9A6"]
+Node20 [label = "push    esi
+call    sub_435CB0
+jmp     loc_43CD59"]
+Node21 [label = "cmp     ecx, 4
+jnz     short loc_43C9DA"]
+Node22 [label = "test    eax, eax
+jnz     short loc_43C9DA"]
+Node23 [label = "cmp     byte ptr [esi+2], 0Ah
+jnz     loc_43CD4E"]
+Node24 [label = "push    esi
+push    71h
+call    sub_433960
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node25 [label = "cmp     ecx, 5
+jnz     short loc_43CA16"]
+Node26 [label = "test    eax, eax
+jnz     short loc_43CA16"]
+Node27 [label = "cmp     byte ptr [esi+2], 0Ah
+jnz     short loc_43CA0A"]
+Node28 [label = "push    esi
+push    71h
+call    sub_435BE0
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node29 [label = "mov     ecx, off_4630C4
+push    ecx
+jmp     loc_43CD54"]
+Node30 [label = "cmp     ecx, 6
+jnz     short loc_43CA40"]
+Node31 [label = "test    eax, eax
+jnz     short loc_43CA40"]
+Node32 [label = "push    esi
+push    eax
+push    eax
+call    sub_426D20
+add     esp, 0Ch
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node33 [label = "cmp     ecx, 7
+jnz     short loc_43CA54"]
+Node34 [label = "test    eax, eax
+jnz     short loc_43CA54"]
+Node35 [label = "push    esi             ; FileSizeHigh
+call    sub_40DFF0
+jmp     loc_43CD59"]
+Node36 [label = "cmp     ecx, 8
+jnz     short loc_43CA7E"]
+Node37 [label = "test    eax, eax
+jnz     short loc_43CA7E"]
+Node38 [label = "push    esi
+push    3
+call    b9
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node39 [label = "cmp     ecx, 9
+jnz     short loc_43CAF5"]
+Node40 [label = "test    eax, eax
+jnz     short loc_43CAF5"]
+Node41 [label = "cmp     byte ptr [esi+2], 4
+jz      short loc_43CA99"]
+Node42 [label = "mov     edx, off_4630C4
+push    edx
+jmp     loc_43CD54"]
+Node43 [label = "movzx   eax, byte ptr [esi+10h]
+cmp     dword_4E2FF8, eax
+jnz     short loc_43CAAA"]
+Node44 [label = "mov     eax, [esi+14h]
+jmp     short loc_43CAB6"]
+Node45 [label = "mov     ecx, [esi+14h]
+push    ecx
+call    sub_4104A0
+add     esp, 4"]
+Node46 [label = "mov     ecx, [esi+8]
+cdq
+cmp     ecx, eax
+jnz     short loc_43CAC5"]
+Node47 [label = "mov     eax, [esi+0Ch]
+cmp     eax, edx
+jz      short loc_43CAD1"]
+Node48 [label = "mov     ecx, off_4630C8
+push    ecx
+jmp     loc_43CD54"]
+Node49 [label = "push    esi
+call    sub_410830
+add     esp, 4
+test    eax, eax
+jz      short loc_43CAE9"]
+Node50 [label = "push    esi
+call    d9
+jmp     loc_43CD59"]
+Node51 [label = "mov     edx, off_463104
+push    edx
+jmp     loc_43CD54"]
+Node52 [label = "cmp     ecx, 0Ah
+jnz     short loc_43CB4C"]
+Node53 [label = "test    eax, eax
+jnz     short loc_43CB4C"]
+Node54 [label = "cmp     byte ptr [esi+2], 0FBh
+jnz     short loc_43CB3C"]
+Node55 [label = "movsx   eax, word ptr [esi+8]
+test    eax, eax
+jge     short loc_43CB0E"]
+Node56 [label = "neg     eax"]
+Node57 [label = "cdq
+test    edx, edx
+jg      short loc_43CB3C"]
+Node58 [label = "jl      short loc_43CB1A"]
+Node59 [label = "cmp     eax, 4Dh
+jnb     short loc_43CB3C"]
+Node60 [label = "mov     eax, off_4633A0[eax*4]
+test    eax, eax
+jz      short loc_43CB3C"]
+Node61 [label = "call    sub_43BE30
+neg     eax
+sbb     eax, eax
+add     eax, 1
+push    eax
+call    kb
+jmp     loc_43CD59"]
+Node62 [label = "mov     eax, 1
+push    eax
+call    kb
+jmp     loc_43CD59"]
+Node63 [label = "cmp     ecx, 0Bh
+jnz     short loc_43CB60"]
+Node64 [label = "test    eax, eax
+jnz     short loc_43CB60"]
+Node65 [label = "push    esi
+call    sub_40DF10
+jmp     loc_43CD59"]
+Node66 [label = "cmp     ecx, 0Ch
+jnz     short loc_43CB9B"]
+Node67 [label = "test    eax, eax
+jnz     short loc_43CB9B"]
+Node68 [label = "cmp     byte ptr [esi+2], 0FAh
+jnz     loc_43CA0A"]
+Node69 [label = "mov     eax, [esi+8]
+push    eax             ; addr
+call    host
+push    eax
+call    sub_40FE40
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node70 [label = "cmp     ecx, 0Dh
+jnz     short loc_43CBD6"]
+Node71 [label = "test    eax, eax
+jnz     short loc_43CBD6"]
+Node72 [label = "cmp     byte ptr [esi+2], 0F5h
+jnz     loc_43CD4E"]
+Node73 [label = "mov     edx, [esi+8]
+push    edx             ; name
+call    addr
+push    eax
+call    ki
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node74 [label = "cmp     ecx, 0Eh
+jnz     short loc_43CBEA"]
+Node75 [label = "test    eax, eax
+jnz     short loc_43CBEA"]
+Node76 [label = "push    esi
+call    sub_417840
+jmp     loc_43CD59"]
+Node77 [label = "cmp     ecx, 0Fh
+jnz     short loc_43CC2C"]
+Node78 [label = "test    eax, eax
+jnz     short loc_43CC2C"]
+Node79 [label = "mov     al, [esi+2]
+cmp     al, 0Ah
+jnz     short loc_43CC05"]
+Node80 [label = "push    esi
+call    sub_41D120
+jmp     loc_43CD59"]
+Node81 [label = "cmp     al, 0F6h
+jnz     loc_43CA0A"]
+Node82 [label = "movzx   eax, byte ptr [esi+8]
+call    sub_43C810
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node83 [label = "cmp     ecx, 10h
+jnz     short loc_43CC43"]
+Node84 [label = "test    eax, eax
+jnz     short loc_43CC43"]
+Node85 [label = "mov     edx, [esi+4]
+push    edx
+call    ki
+jmp     loc_43CD59"]
+Node86 [label = "cmp     ecx, 11h
+jnz     short loc_43CC57"]
+Node87 [label = "test    eax, eax
+jnz     short loc_43CC57"]
+Node88 [label = "push    esi
+call    sub_40CFE0
+jmp     loc_43CD59"]
+Node89 [label = "cmp     ecx, 12h
+jnz     short loc_43CC81"]
+Node90 [label = "test    eax, eax
+jnz     short loc_43CC81"]
+Node91 [label = "push    esi
+push    0Bh
+call    b9
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node92 [label = "cmp     ecx, 13h
+jnz     short loc_43CC95"]
+Node93 [label = "test    eax, eax
+jnz     short loc_43CC95"]
+Node94 [label = "push    esi
+call    sub_440A10
+jmp     loc_43CD59"]
+Node95 [label = "cmp     ecx, 14h
+jnz     short loc_43CCC3"]
+Node96 [label = "test    eax, eax
+jnz     short loc_43CCC3"]
+Node97 [label = "call    sub_411400
+push    edx
+push    eax
+call    kj
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node98 [label = "cmp     ecx, 15h
+jnz     short loc_43CCD7"]
+Node99 [label = "test    eax, eax
+jnz     short loc_43CCD7"]
+Node100 [label = "push    esi
+call    sub_440770
+jmp     loc_43CD59"]
+Node101 [label = "cmp     ecx, 16h
+jnz     short loc_43CD20"]
+Node102 [label = "test    eax, eax
+jnz     short loc_43CD20"]
+Node103 [label = "push    esi
+push    3
+call    sub_413150
+mov     ecx, eax
+add     esp, 8
+or      ecx, edx
+jz      short loc_43CD17"]
+Node104 [label = "add     eax, 8
+adc     edx, 0
+push    edx
+push    eax
+call    kj
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node105 [label = "mov     edx, off_4630C8
+push    edx
+jmp     short loc_43CD54"]
+Node106 [label = "cmp     ecx, 17h
+jnz     short loc_43CD4E"]
+Node107 [label = "test    eax, eax
+jnz     short loc_43CD4E"]
+Node108 [label = "push    esi
+call    sub_40B2C0
+push    esi
+call    r1
+add     esp, 8
+pop     esi
+mov     ecx, [esp+104h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node109 [label = "mov     eax, off_4630C4
+push    eax"]
+Node110 [label = "call    krr"]
+Node111 [label = "mov     ecx, [esp+10Ch+var_4]
+add     esp, 4
+pop     esi
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 104h
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node9 [color = "green"]
+Node1 -> Node2 [color = "red"]
+Node1 -> Node9 [color = "green"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node4 [color = "green"]
+Node4 -> Node5 [color = "red"]
+Node4 -> Node109 [color = "green"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node8 [color = "green"]
+Node6 -> Node7 [color = "red"]
+Node6 -> Node8 [color = "green"]
+Node8 -> Node111 [color = "black"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node18 [color = "green"]
+Node10 -> Node11 [color = "red"]
+Node10 -> Node18 [color = "green"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node17 [color = "green"]
+Node12 -> Node13 [color = "red"]
+Node12 -> Node17 [color = "green"]
+Node13 -> Node14 [color = "red"]
+Node13 -> Node17 [color = "green"]
+Node14 -> Node15 [color = "red"]
+Node14 -> Node16 [color = "green"]
+Node15 -> Node16 [color = "black"]
+Node16 -> Node111 [color = "black"]
+Node17 -> Node111 [color = "black"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node21 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node21 [color = "green"]
+Node20 -> Node111 [color = "black"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node25 [color = "green"]
+Node22 -> Node23 [color = "red"]
+Node22 -> Node25 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node109 [color = "green"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node30 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node26 -> Node30 [color = "green"]
+Node27 -> Node28 [color = "red"]
+Node27 -> Node29 [color = "green"]
+Node29 -> Node110 [color = "black"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node33 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node33 [color = "green"]
+Node33 -> Node34 [color = "red"]
+Node33 -> Node36 [color = "green"]
+Node34 -> Node35 [color = "red"]
+Node34 -> Node36 [color = "green"]
+Node35 -> Node111 [color = "black"]
+Node36 -> Node37 [color = "red"]
+Node36 -> Node39 [color = "green"]
+Node37 -> Node38 [color = "red"]
+Node37 -> Node39 [color = "green"]
+Node39 -> Node40 [color = "red"]
+Node39 -> Node52 [color = "green"]
+Node40 -> Node41 [color = "red"]
+Node40 -> Node52 [color = "green"]
+Node41 -> Node42 [color = "red"]
+Node41 -> Node43 [color = "green"]
+Node42 -> Node110 [color = "black"]
+Node43 -> Node44 [color = "red"]
+Node43 -> Node45 [color = "green"]
+Node44 -> Node46 [color = "black"]
+Node45 -> Node46 [color = "black"]
+Node46 -> Node47 [color = "red"]
+Node46 -> Node48 [color = "green"]
+Node47 -> Node48 [color = "red"]
+Node47 -> Node49 [color = "green"]
+Node48 -> Node110 [color = "black"]
+Node49 -> Node50 [color = "red"]
+Node49 -> Node51 [color = "green"]
+Node50 -> Node111 [color = "black"]
+Node51 -> Node110 [color = "black"]
+Node52 -> Node53 [color = "red"]
+Node52 -> Node63 [color = "green"]
+Node53 -> Node54 [color = "red"]
+Node53 -> Node63 [color = "green"]
+Node54 -> Node55 [color = "red"]
+Node54 -> Node62 [color = "green"]
+Node55 -> Node56 [color = "red"]
+Node55 -> Node57 [color = "green"]
+Node56 -> Node57 [color = "black"]
+Node57 -> Node58 [color = "red"]
+Node57 -> Node62 [color = "green"]
+Node58 -> Node59 [color = "red"]
+Node58 -> Node60 [color = "green"]
+Node59 -> Node60 [color = "red"]
+Node59 -> Node62 [color = "green"]
+Node60 -> Node61 [color = "red"]
+Node60 -> Node62 [color = "green"]
+Node61 -> Node111 [color = "black"]
+Node62 -> Node111 [color = "black"]
+Node63 -> Node64 [color = "red"]
+Node63 -> Node66 [color = "green"]
+Node64 -> Node65 [color = "red"]
+Node64 -> Node66 [color = "green"]
+Node65 -> Node111 [color = "black"]
+Node66 -> Node67 [color = "red"]
+Node66 -> Node70 [color = "green"]
+Node67 -> Node68 [color = "red"]
+Node67 -> Node70 [color = "green"]
+Node68 -> Node29 [color = "green"]
+Node68 -> Node69 [color = "red"]
+Node70 -> Node71 [color = "red"]
+Node70 -> Node74 [color = "green"]
+Node71 -> Node72 [color = "red"]
+Node71 -> Node74 [color = "green"]
+Node72 -> Node73 [color = "red"]
+Node72 -> Node109 [color = "green"]
+Node74 -> Node75 [color = "red"]
+Node74 -> Node77 [color = "green"]
+Node75 -> Node76 [color = "red"]
+Node75 -> Node77 [color = "green"]
+Node76 -> Node111 [color = "black"]
+Node77 -> Node78 [color = "red"]
+Node77 -> Node83 [color = "green"]
+Node78 -> Node79 [color = "red"]
+Node78 -> Node83 [color = "green"]
+Node79 -> Node80 [color = "red"]
+Node79 -> Node81 [color = "green"]
+Node80 -> Node111 [color = "black"]
+Node81 -> Node29 [color = "green"]
+Node81 -> Node82 [color = "red"]
+Node83 -> Node84 [color = "red"]
+Node83 -> Node86 [color = "green"]
+Node84 -> Node85 [color = "red"]
+Node84 -> Node86 [color = "green"]
+Node85 -> Node111 [color = "black"]
+Node86 -> Node87 [color = "red"]
+Node86 -> Node89 [color = "green"]
+Node87 -> Node88 [color = "red"]
+Node87 -> Node89 [color = "green"]
+Node88 -> Node111 [color = "black"]
+Node89 -> Node90 [color = "red"]
+Node89 -> Node92 [color = "green"]
+Node90 -> Node91 [color = "red"]
+Node90 -> Node92 [color = "green"]
+Node92 -> Node93 [color = "red"]
+Node92 -> Node95 [color = "green"]
+Node93 -> Node94 [color = "red"]
+Node93 -> Node95 [color = "green"]
+Node94 -> Node111 [color = "black"]
+Node95 -> Node96 [color = "red"]
+Node95 -> Node98 [color = "green"]
+Node96 -> Node97 [color = "red"]
+Node96 -> Node98 [color = "green"]
+Node98 -> Node99 [color = "red"]
+Node98 -> Node101 [color = "green"]
+Node99 -> Node100 [color = "red"]
+Node99 -> Node101 [color = "green"]
+Node100 -> Node111 [color = "black"]
+Node101 -> Node102 [color = "red"]
+Node101 -> Node106 [color = "green"]
+Node102 -> Node103 [color = "red"]
+Node102 -> Node106 [color = "green"]
+Node103 -> Node104 [color = "red"]
+Node103 -> Node105 [color = "green"]
+Node105 -> Node110 [color = "black"]
+Node106 -> Node107 [color = "red"]
+Node106 -> Node109 [color = "green"]
+Node107 -> Node108 [color = "red"]
+Node107 -> Node109 [color = "green"]
+Node109 -> Node110 [color = "black"]
+Node110 -> Node111 [color = "black"]
+}

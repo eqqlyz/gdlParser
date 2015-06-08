@@ -1,0 +1,805 @@
+graph: {
+title: "__write_nolock"
+manhattan_edges: yes
+layoutalgorithm: mindepth
+finetuning: no
+layout_downfactor: 100
+layout_upfactor: 0
+layout_nearfactor: 0
+xlspace: 12
+yspace: 30
+// IDA palette
+colorentry 32: 0 0 0
+colorentry 33: 0 0 255
+colorentry 34: 0 0 255
+colorentry 35: 128 128 128
+colorentry 36: 128 128 128
+colorentry 37: 0 0 128
+colorentry 38: 0 0 128
+colorentry 39: 0 0 255
+colorentry 40: 0 0 255
+colorentry 41: 0 0 128
+colorentry 42: 0 128 0
+colorentry 43: 0 255 0
+colorentry 44: 0 128 0
+colorentry 45: 255 128 0
+colorentry 46: 0 128 0
+colorentry 47: 128 128 255
+colorentry 48: 255 0 0
+colorentry 49: 128 128 0
+colorentry 50: 1 1 1
+colorentry 51: 192 192 192
+colorentry 52: 0 0 255
+colorentry 53: 0 0 255
+colorentry 54: 0 0 255
+colorentry 55: 128 128 128
+colorentry 56: 128 128 255
+colorentry 57: 0 128 0
+colorentry 58: 0 0 128
+colorentry 59: 0 0 255
+colorentry 60: 128 0 128
+colorentry 61: 0 128 0
+colorentry 62: 0 128 0
+colorentry 63: 0 128 64
+colorentry 64: 0 0 128
+colorentry 65: 0 0 128
+colorentry 66: 255 0 255
+colorentry 67: 128 128 0
+colorentry 68: 0 0 128
+colorentry 69: 0 0 255
+colorentry 70: 0 0 128
+colorentry 71: 0 0 255
+colorentry 72: 0 0 0
+colorentry 73: 255 255 255
+colorentry 74: 192 192 192
+colorentry 75: 0 255 255
+colorentry 76: 0 0 0
+colorentry 77: 128 0 0
+colorentry 78: 128 128 128
+colorentry 79: 128 128 0
+colorentry 80: 255 0 255
+colorentry 81: 0 0 0
+colorentry 82: 0 0 255
+colorentry 83: 0 0 0
+node: { title: "0" label: "56__write_nolock31:
+push    ebp
+lea     ebp, [esp-518h]
+sub     esp, 594h
+mov     eax, ___security_cookie
+xor     eax, ebp
+mov     [ebp+518h+var_4], eax
+mov     eax, [ebp+518h+arg_4]
+push    esi
+xor     esi, esi
+cmp     [ebp+518h+nNumberOfBytesToWrite], esi
+mov     [ebp+518h+lpBuffer], eax
+mov     [ebp+518h+var_578], esi
+mov     [ebp+518h+var_580], esi
+jnz     short loc_44EB5A" vertical_order: 0 }
+node: { title: "1" label: "xor     eax, eax
+jmp     loc_44F0CE" }
+node: { title: "2" label: "cmp     eax, esi
+jnz     short loc_44EB85" }
+node: { title: "3" label: "call    ___doserrno
+mov     [eax], esi
+call    __errno
+push    esi
+push    esi
+push    esi
+push    esi
+push    esi
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+or      eax, 0FFFFFFFFh
+jmp     loc_44F0CE" }
+node: { title: "4" label: "mov     esi, [ebp+518h+arg_0]
+push    ebx
+mov     ebx, esi
+and     ebx, 1Fh
+imul    ebx, 28h
+mov     eax, esi
+sar     eax, 5
+push    edi
+lea     edi, ds:4E5140h[eax*4]
+mov     eax, [edi]
+add     eax, ebx
+mov     cl, [eax+24h]
+add     cl, cl
+sar     cl, 1
+cmp     cl, 2
+mov     [ebp+518h+var_588], edi
+mov     [ebp+518h+var_56D], cl
+jz      short loc_44EBBC" }
+node: { title: "5" label: "cmp     cl, 1
+jnz     short loc_44EBEF" }
+node: { title: "6" label: "mov     ecx, [ebp+518h+nNumberOfBytesToWrite]
+not     ecx
+test    cl, 1
+jnz     short loc_44EBEF" }
+node: { title: "7" label: "call    ___doserrno
+xor     esi, esi
+mov     [eax], esi
+call    __errno
+push    esi
+push    esi
+push    esi
+push    esi
+push    esi
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+jmp     loc_44F0C4" }
+node: { title: "8" label: "test    byte ptr [eax+4], 20h
+jz      short loc_44EC04" }
+node: { title: "9" label: "push    2               ; dwMoveMethod
+push    0               ; int
+push    0               ; int
+push    esi             ; int
+call    __lseeki64_nolock
+add     esp, 10h" }
+node: { title: "10" label: "push    esi             ; int
+call    __isatty
+test    eax, eax
+pop     ecx
+jz      loc_44EE09" }
+node: { title: "11" label: "mov     eax, [edi]
+test    byte ptr [ebx+eax+4], 80h
+jz      loc_44EE09" }
+node: { title: "12" label: "call    __getptd
+mov     eax, [eax+6Ch]
+xor     ecx, ecx
+cmp     [eax+14h], ecx
+lea     eax, [ebp+518h+CodePage]
+setz    cl
+push    eax             ; lpMode
+mov     eax, [edi]
+push    dword ptr [ebx+eax]; hConsoleHandle
+mov     esi, ecx
+call    ds:GetConsoleMode
+test    eax, eax
+jz      loc_44EE09" }
+node: { title: "13" label: "test    esi, esi
+jz      short loc_44EC57" }
+node: { title: "14" label: "cmp     [ebp+518h+var_56D], 0
+jz      loc_44EE09" }
+node: { title: "15" label: "call    ds:GetConsoleCP
+and     [ebp+518h+NumberOfBytesWritten], 0
+cmp     [ebp+518h+nNumberOfBytesToWrite], 0
+mov     esi, [ebp+518h+lpBuffer]
+mov     [ebp+518h+CodePage], eax
+mov     [ebp+518h+var_58C], esi
+jbe     loc_44F076" }
+node: { title: "16" label: "and     [ebp+518h+var_574], 0
+jmp     short loc_44EC80" }
+node: { title: "17" label: "mov     esi, [ebp+518h+var_58C]" }
+node: { title: "18" label: "mov     al, [ebp+518h+var_56D]
+test    al, al
+jnz     loc_44ED91" }
+node: { title: "19" label: "mov     al, [esi]
+xor     ecx, ecx
+cmp     al, 0Ah
+setz    cl
+movsx   eax, al
+push    eax             ; int
+mov     [ebp+518h+var_590], ecx
+call    _isleadbyte
+test    eax, eax
+pop     ecx
+jnz     short loc_44ECBF" }
+node: { title: "20" label: "push    1               ; size_t
+lea     eax, [ebp+518h+WideCharStr]
+push    esi             ; char *
+push    eax             ; wchar_t *
+call    _mbtowc
+add     esp, 0Ch
+cmp     eax, 0FFFFFFFFh
+jz      loc_44F06C" }
+node: { title: "21" label: "jmp     short loc_44ECEF" }
+node: { title: "22" label: "mov     eax, [ebp+518h+lpBuffer]
+sub     eax, esi
+add     eax, [ebp+518h+nNumberOfBytesToWrite]
+cmp     eax, 1
+jbe     loc_44F06C" }
+node: { title: "23" label: "push    2               ; size_t
+lea     eax, [ebp+518h+WideCharStr]
+push    esi             ; char *
+push    eax             ; wchar_t *
+call    _mbtowc
+add     esp, 0Ch
+cmp     eax, 0FFFFFFFFh
+jz      loc_44F06C" }
+node: { title: "24" label: "inc     esi
+inc     [ebp+518h+var_574]" }
+node: { title: "25" label: "xor     eax, eax
+push    eax             ; lpUsedDefaultChar
+push    eax             ; lpDefaultChar
+push    5               ; cbMultiByte
+lea     ecx, [ebp+518h+Buffer]
+push    ecx             ; lpMultiByteStr
+push    1               ; cchWideChar
+lea     ecx, [ebp+518h+WideCharStr]
+push    ecx             ; lpWideCharStr
+push    eax             ; dwFlags
+push    [ebp+518h+CodePage]; CodePage
+inc     esi
+inc     [ebp+518h+var_574]
+mov     [ebp+518h+var_58C], esi
+call    ds:WideCharToMultiByte
+mov     esi, eax
+test    esi, esi
+jz      loc_44F06C" }
+node: { title: "26" label: "push    0               ; lpOverlapped
+lea     eax, [ebp+518h+NumberOfBytesWritten]
+push    eax             ; lpNumberOfBytesWritten
+push    esi             ; nNumberOfBytesToWrite
+lea     eax, [ebp+518h+Buffer]
+push    eax             ; lpBuffer
+mov     eax, [edi]
+push    dword ptr [ebx+eax]; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      loc_44F063" }
+node: { title: "27" label: "mov     eax, [ebp+518h+NumberOfBytesWritten]
+add     [ebp+518h+var_578], eax
+cmp     eax, esi
+jl      loc_44F06C" }
+node: { title: "28" label: "cmp     [ebp+518h+var_590], 0
+jz      loc_44EDF5" }
+node: { title: "29" label: "push    0               ; lpOverlapped
+lea     eax, [ebp+518h+NumberOfBytesWritten]
+push    eax             ; lpNumberOfBytesWritten
+push    1               ; nNumberOfBytesToWrite
+lea     eax, [ebp+518h+Buffer]
+push    eax             ; lpBuffer
+mov     eax, [edi]
+mov     [ebp+518h+Buffer], 0Dh
+push    dword ptr [ebx+eax]; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      loc_44F063" }
+node: { title: "30" label: "cmp     [ebp+518h+NumberOfBytesWritten], 1
+jl      loc_44F06C" }
+node: { title: "31" label: "inc     [ebp+518h+var_580]
+inc     [ebp+518h+var_578]
+jmp     short loc_44EDF5" }
+node: { title: "32" label: "cmp     al, 1
+jz      short loc_44ED99" }
+node: { title: "33" label: "cmp     al, 2
+jnz     short loc_44EDB4" }
+node: { title: "34" label: "movzx   ecx, word ptr [esi]
+xor     edx, edx
+cmp     cx, 0Ah
+setz    dl
+inc     esi
+inc     esi
+add     [ebp+518h+var_574], 2
+mov     dword ptr [ebp+518h+WideCharStr], ecx
+mov     [ebp+518h+var_58C], esi
+mov     [ebp+518h+var_590], edx" }
+node: { title: "35" label: "cmp     al, 1
+jz      short loc_44EDBC" }
+node: { title: "36" label: "cmp     al, 2
+jnz     short loc_44EDF5" }
+node: { title: "37" label: "push    dword ptr [ebp+518h+WideCharStr]; Buffer
+call    __putwch_nolock
+cmp     ax, [ebp+518h+WideCharStr]
+pop     ecx
+jnz     loc_44F063" }
+node: { title: "38" label: "inc     [ebp+518h+var_578]
+cmp     [ebp+518h+var_590], 0
+jz      short loc_44EDF5" }
+node: { title: "39" label: "push    0Dh
+pop     eax
+push    eax             ; Buffer
+mov     dword ptr [ebp+518h+WideCharStr], eax
+call    __putwch_nolock
+cmp     ax, [ebp+518h+WideCharStr]
+pop     ecx
+jnz     loc_44F063" }
+node: { title: "40" label: "inc     [ebp+518h+var_578]
+inc     [ebp+518h+var_580]" }
+node: { title: "41" label: "mov     eax, [ebp+518h+nNumberOfBytesToWrite]
+cmp     [ebp+518h+var_574], eax
+jb      loc_44EC7D" }
+node: { title: "42" label: "jmp     loc_44F06C" }
+node: { title: "43" label: "mov     eax, [edi]
+add     eax, ebx
+test    byte ptr [eax+4], 80h
+jz      loc_44F03C" }
+node: { title: "44" label: "mov     eax, [ebp+518h+lpBuffer]
+xor     esi, esi
+cmp     [ebp+518h+var_56D], 0
+mov     dword ptr [ebp+518h+WideCharStr], esi
+jnz     loc_44EEBA" }
+node: { title: "45" label: "cmp     [ebp+518h+nNumberOfBytesToWrite], esi
+mov     [ebp+518h+NumberOfBytesWritten], eax
+jbe     loc_44F09D" }
+node: { title: "46" label: "mov     ecx, [ebp+518h+NumberOfBytesWritten]
+and     [ebp+518h+var_574], 0
+sub     ecx, [ebp+518h+lpBuffer]
+lea     eax, [ebp+518h+var_564]" }
+node: { title: "47" label: "cmp     ecx, [ebp+518h+nNumberOfBytesToWrite]
+jnb     short loc_44EE74" }
+node: { title: "48" label: "mov     edx, [ebp+518h+NumberOfBytesWritten]
+inc     [ebp+518h+NumberOfBytesWritten]
+mov     dl, [edx]
+inc     ecx
+cmp     dl, 0Ah
+jnz     short loc_44EE65" }
+node: { title: "49" label: "inc     [ebp+518h+var_580]
+mov     byte ptr [eax], 0Dh
+inc     eax
+inc     [ebp+518h+var_574]" }
+node: { title: "50" label: "mov     [eax], dl
+inc     eax
+inc     [ebp+518h+var_574]
+cmp     [ebp+518h+var_574], 400h
+jb      short loc_44EE45" }
+node: { title: "51" label: "mov     esi, eax
+lea     eax, [ebp+518h+var_564]
+sub     esi, eax
+push    0               ; lpOverlapped
+lea     eax, [ebp+518h+var_584]
+push    eax             ; lpNumberOfBytesWritten
+push    esi             ; nNumberOfBytesToWrite
+lea     eax, [ebp+518h+var_564]
+push    eax             ; lpBuffer
+mov     eax, [edi]
+push    dword ptr [ebx+eax]; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      loc_44F063" }
+node: { title: "52" label: "mov     eax, [ebp+518h+var_584]
+add     [ebp+518h+var_578], eax
+cmp     eax, esi
+jl      loc_44F06C" }
+node: { title: "53" label: "mov     eax, [ebp+518h+NumberOfBytesWritten]
+sub     eax, [ebp+518h+lpBuffer]
+cmp     eax, [ebp+518h+nNumberOfBytesToWrite]
+jb      short loc_44EE38" }
+node: { title: "54" label: "jmp     loc_44F06C" }
+node: { title: "55" label: "cmp     [ebp+518h+var_56D], 2
+jnz     loc_44EF61" }
+node: { title: "56" label: "cmp     [ebp+518h+nNumberOfBytesToWrite], esi
+mov     [ebp+518h+NumberOfBytesWritten], eax
+jbe     loc_44F09D" }
+node: { title: "57" label: "mov     ecx, [ebp+518h+NumberOfBytesWritten]
+xor     esi, esi
+sub     ecx, [ebp+518h+lpBuffer]
+lea     eax, [ebp+518h+var_564]" }
+node: { title: "58" label: "cmp     ecx, [ebp+518h+nNumberOfBytesToWrite]
+jnb     short loc_44EF17" }
+node: { title: "59" label: "mov     edx, [ebp+518h+NumberOfBytesWritten]
+add     [ebp+518h+NumberOfBytesWritten], 2
+movzx   edx, word ptr [edx]
+inc     ecx
+inc     ecx
+cmp     dx, 0Ah
+jnz     short loc_44EF05" }
+node: { title: "60" label: "add     [ebp+518h+var_580], 2
+mov     word ptr [eax], 0Dh
+inc     eax
+inc     eax
+inc     esi
+inc     esi" }
+node: { title: "61" label: "mov     edi, [ebp+518h+var_588]
+mov     [eax], dx
+inc     eax
+inc     eax
+inc     esi
+inc     esi
+cmp     esi, 3FFh
+jb      short loc_44EEDE" }
+node: { title: "62" label: "mov     esi, eax
+lea     eax, [ebp+518h+var_564]
+sub     esi, eax
+push    0               ; lpOverlapped
+lea     eax, [ebp+518h+var_584]
+push    eax             ; lpNumberOfBytesWritten
+push    esi             ; nNumberOfBytesToWrite
+lea     eax, [ebp+518h+var_564]
+push    eax             ; lpBuffer
+mov     eax, [edi]
+push    dword ptr [ebx+eax]; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      loc_44F063" }
+node: { title: "63" label: "mov     eax, [ebp+518h+var_584]
+add     [ebp+518h+var_578], eax
+cmp     eax, esi
+jl      loc_44F06C" }
+node: { title: "64" label: "mov     eax, [ebp+518h+NumberOfBytesWritten]
+sub     eax, [ebp+518h+lpBuffer]
+cmp     eax, [ebp+518h+nNumberOfBytesToWrite]
+jb      loc_44EED3" }
+node: { title: "65" label: "jmp     loc_44F06C" }
+node: { title: "66" label: "cmp     [ebp+518h+nNumberOfBytesToWrite], esi
+mov     [ebp+518h+var_574], eax
+jbe     loc_44F09D" }
+node: { title: "67" label: "mov     ecx, [ebp+518h+var_574]
+and     [ebp+518h+NumberOfBytesWritten], 0
+sub     ecx, [ebp+518h+lpBuffer]
+push    2
+lea     eax, [ebp+518h+var_160]
+pop     esi" }
+node: { title: "68" label: "cmp     ecx, [ebp+518h+nNumberOfBytesToWrite]
+jnb     short loc_44EFB7" }
+node: { title: "69" label: "mov     edx, [ebp+518h+var_574]
+movzx   edx, word ptr [edx]
+add     [ebp+518h+var_574], esi
+add     ecx, esi
+cmp     dx, 0Ah
+jnz     short loc_44EFA6" }
+node: { title: "70" label: "mov     word ptr [eax], 0Dh
+add     eax, esi
+add     [ebp+518h+NumberOfBytesWritten], esi" }
+node: { title: "71" label: "add     [ebp+518h+NumberOfBytesWritten], esi
+mov     [eax], dx
+add     eax, esi
+cmp     [ebp+518h+NumberOfBytesWritten], 152h
+jb      short loc_44EF83" }
+node: { title: "72" label: "xor     esi, esi
+push    esi             ; lpUsedDefaultChar
+push    esi             ; lpDefaultChar
+push    2ABh            ; cbMultiByte
+lea     ecx, [ebp+518h+MultiByteStr]
+push    ecx             ; lpMultiByteStr
+lea     ecx, [ebp+518h+var_160]
+sub     eax, ecx
+cdq
+sub     eax, edx
+sar     eax, 1
+push    eax             ; cchWideChar
+mov     eax, ecx
+push    eax             ; lpWideCharStr
+push    esi             ; dwFlags
+push    0FDE9h          ; CodePage
+call    ds:WideCharToMultiByte
+mov     edi, eax
+cmp     edi, esi
+jz      short loc_44F063" }
+node: { title: "73" label: "push    0               ; lpOverlapped
+lea     eax, [ebp+518h+var_584]
+push    eax             ; lpNumberOfBytesWritten
+mov     eax, edi
+sub     eax, esi
+push    eax             ; nNumberOfBytesToWrite
+lea     eax, [ebp+esi+518h+MultiByteStr]
+push    eax             ; lpBuffer
+mov     eax, [ebp+518h+var_588]
+mov     eax, [eax]
+push    dword ptr [ebx+eax]; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      short loc_44F018" }
+node: { title: "74" label: "add     esi, [ebp+518h+var_584]
+cmp     edi, esi
+jg      short loc_44EFEA" }
+node: { title: "75" label: "jmp     short loc_44F021" }
+node: { title: "76" label: "call    ds:GetLastError
+mov     dword ptr [ebp+518h+WideCharStr], eax" }
+node: { title: "77" label: "cmp     edi, esi
+jg      short loc_44F06C" }
+node: { title: "78" label: "mov     eax, [ebp+518h+var_574]
+sub     eax, [ebp+518h+lpBuffer]
+cmp     eax, [ebp+518h+nNumberOfBytesToWrite]
+mov     [ebp+518h+var_578], eax
+jb      loc_44EF70" }
+node: { title: "79" label: "jmp     short loc_44F06C" }
+node: { title: "80" label: "push    0               ; lpOverlapped
+lea     ecx, [ebp+518h+var_584]
+push    ecx             ; lpNumberOfBytesWritten
+push    [ebp+518h+nNumberOfBytesToWrite]; nNumberOfBytesToWrite
+push    [ebp+518h+lpBuffer]; lpBuffer
+push    dword ptr [eax] ; hFile
+call    ds:WriteFile
+test    eax, eax
+jz      short loc_44F063" }
+node: { title: "81" label: "mov     eax, [ebp+518h+var_584]
+and     dword ptr [ebp+518h+WideCharStr], 0
+mov     [ebp+518h+var_578], eax
+jmp     short loc_44F06C" }
+node: { title: "82" label: "call    ds:GetLastError
+mov     dword ptr [ebp+518h+WideCharStr], eax" }
+node: { title: "83" label: "mov     eax, [ebp+518h+var_578]
+test    eax, eax
+jnz     short loc_44F0C9" }
+node: { title: "84" label: "mov     edi, [ebp+518h+var_588]" }
+node: { title: "85" label: "xor     esi, esi
+cmp     dword ptr [ebp+518h+WideCharStr], esi
+jz      short loc_44F09D" }
+node: { title: "86" label: "push    5
+pop     esi
+cmp     dword ptr [ebp+518h+WideCharStr], esi
+jnz     short loc_44F092" }
+node: { title: "87" label: "call    __errno
+mov     dword ptr [eax], 9
+jmp     short loc_44F0BD" }
+node: { title: "88" label: "push    dword ptr [ebp+518h+WideCharStr]
+call    __dosmaperr
+pop     ecx
+jmp     short loc_44F0C4" }
+node: { title: "89" label: "mov     eax, [edi]
+test    byte ptr [ebx+eax+4], 40h
+jz      short loc_44F0B2" }
+node: { title: "90" label: "mov     eax, [ebp+518h+lpBuffer]
+cmp     byte ptr [eax], 1Ah
+jnz     short loc_44F0B2" }
+node: { title: "91" label: "xor     eax, eax
+jmp     short loc_44F0CC" }
+node: { title: "92" label: "call    __errno
+mov     dword ptr [eax], 1Ch" }
+node: { title: "93" label: "call    ___doserrno
+mov     [eax], esi" }
+node: { title: "94" label: "or      eax, 0FFFFFFFFh
+jmp     short loc_44F0CC" }
+node: { title: "95" label: "sub     eax, [ebp+518h+var_580]" }
+node: { title: "96" label: "pop     edi
+pop     ebx" }
+node: { title: "97" label: "mov     ecx, [ebp+518h+var_4]
+xor     ecx, ebp
+pop     esi
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     ebp, 518h
+leave
+retn" }
+// node 0
+edge: { sourcename: "0" targetname: "1" label: "false" color: red }
+edge: { sourcename: "0" targetname: "2" label: "true" color: darkgreen }
+// node 1
+edge: { sourcename: "1" targetname: "97" }
+// node 2
+edge: { sourcename: "2" targetname: "3" label: "false" color: red }
+edge: { sourcename: "2" targetname: "4" label: "true" color: darkgreen }
+// node 3
+edge: { sourcename: "3" targetname: "97" }
+// node 4
+edge: { sourcename: "4" targetname: "5" label: "false" color: red }
+edge: { sourcename: "4" targetname: "6" label: "true" color: darkgreen }
+// node 5
+edge: { sourcename: "5" targetname: "6" label: "false" color: red }
+edge: { sourcename: "5" targetname: "8" label: "true" color: darkgreen }
+// node 6
+edge: { sourcename: "6" targetname: "7" label: "false" color: red }
+edge: { sourcename: "6" targetname: "8" label: "true" color: darkgreen }
+// node 7
+edge: { sourcename: "7" targetname: "94" }
+// node 8
+edge: { sourcename: "8" targetname: "9" label: "false" color: red }
+edge: { sourcename: "8" targetname: "10" label: "true" color: darkgreen }
+// node 9
+edge: { sourcename: "9" targetname: "10" }
+// node 10
+edge: { sourcename: "10" targetname: "11" label: "false" color: red }
+edge: { sourcename: "10" targetname: "43" label: "true" color: darkgreen }
+// node 11
+edge: { sourcename: "11" targetname: "12" label: "false" color: red }
+edge: { sourcename: "11" targetname: "43" label: "true" color: darkgreen }
+// node 12
+edge: { sourcename: "12" targetname: "13" label: "false" color: red }
+edge: { sourcename: "12" targetname: "43" label: "true" color: darkgreen }
+// node 13
+edge: { sourcename: "13" targetname: "14" label: "false" color: red }
+edge: { sourcename: "13" targetname: "15" label: "true" color: darkgreen }
+// node 14
+edge: { sourcename: "14" targetname: "15" label: "false" color: red }
+edge: { sourcename: "14" targetname: "43" label: "true" color: darkgreen }
+// node 15
+edge: { sourcename: "15" targetname: "16" label: "false" color: red }
+edge: { sourcename: "15" targetname: "85" label: "true" color: darkgreen }
+// node 16
+edge: { sourcename: "16" targetname: "18" }
+// node 17
+edge: { sourcename: "17" targetname: "18" }
+// node 18
+edge: { sourcename: "18" targetname: "19" label: "false" color: red }
+edge: { sourcename: "18" targetname: "32" label: "true" color: darkgreen }
+// node 19
+edge: { sourcename: "19" targetname: "20" label: "false" color: red }
+edge: { sourcename: "19" targetname: "22" label: "true" color: darkgreen }
+// node 20
+edge: { sourcename: "20" targetname: "21" label: "false" color: red }
+edge: { sourcename: "20" targetname: "83" label: "true" color: darkgreen }
+// node 21
+edge: { sourcename: "21" targetname: "25" }
+// node 22
+edge: { sourcename: "22" targetname: "23" label: "false" color: red }
+edge: { sourcename: "22" targetname: "83" label: "true" color: darkgreen }
+// node 23
+edge: { sourcename: "23" targetname: "24" label: "false" color: red }
+edge: { sourcename: "23" targetname: "83" label: "true" color: darkgreen }
+// node 24
+edge: { sourcename: "24" targetname: "25" }
+// node 25
+edge: { sourcename: "25" targetname: "26" label: "false" color: red }
+edge: { sourcename: "25" targetname: "83" label: "true" color: darkgreen }
+// node 26
+edge: { sourcename: "26" targetname: "27" label: "false" color: red }
+edge: { sourcename: "26" targetname: "82" label: "true" color: darkgreen }
+// node 27
+edge: { sourcename: "27" targetname: "28" label: "false" color: red }
+edge: { sourcename: "27" targetname: "83" label: "true" color: darkgreen }
+// node 28
+edge: { sourcename: "28" targetname: "29" label: "false" color: red }
+edge: { sourcename: "28" targetname: "41" label: "true" color: darkgreen }
+// node 29
+edge: { sourcename: "29" targetname: "30" label: "false" color: red }
+edge: { sourcename: "29" targetname: "82" label: "true" color: darkgreen }
+// node 30
+edge: { sourcename: "30" targetname: "31" label: "false" color: red }
+edge: { sourcename: "30" targetname: "83" label: "true" color: darkgreen }
+// node 31
+edge: { sourcename: "31" targetname: "41" }
+// node 32
+edge: { sourcename: "32" targetname: "33" label: "false" color: red }
+edge: { sourcename: "32" targetname: "34" label: "true" color: darkgreen }
+// node 33
+edge: { sourcename: "33" targetname: "34" label: "false" color: red }
+edge: { sourcename: "33" targetname: "35" label: "true" color: darkgreen }
+// node 34
+edge: { sourcename: "34" targetname: "35" }
+// node 35
+edge: { sourcename: "35" targetname: "36" label: "false" color: red }
+edge: { sourcename: "35" targetname: "37" label: "true" color: darkgreen }
+// node 36
+edge: { sourcename: "36" targetname: "37" label: "false" color: red }
+edge: { sourcename: "36" targetname: "41" label: "true" color: darkgreen }
+// node 37
+edge: { sourcename: "37" targetname: "38" label: "false" color: red }
+edge: { sourcename: "37" targetname: "82" label: "true" color: darkgreen }
+// node 38
+edge: { sourcename: "38" targetname: "39" label: "false" color: red }
+edge: { sourcename: "38" targetname: "41" label: "true" color: darkgreen }
+// node 39
+edge: { sourcename: "39" targetname: "40" label: "false" color: red }
+edge: { sourcename: "39" targetname: "82" label: "true" color: darkgreen }
+// node 40
+edge: { sourcename: "40" targetname: "41" }
+// node 41
+edge: { sourcename: "41" targetname: "17" label: "true" color: darkgreen }
+edge: { sourcename: "41" targetname: "42" label: "false" color: red }
+// node 42
+edge: { sourcename: "42" targetname: "83" }
+// node 43
+edge: { sourcename: "43" targetname: "44" label: "false" color: red }
+edge: { sourcename: "43" targetname: "80" label: "true" color: darkgreen }
+// node 44
+edge: { sourcename: "44" targetname: "45" label: "false" color: red }
+edge: { sourcename: "44" targetname: "55" label: "true" color: darkgreen }
+// node 45
+edge: { sourcename: "45" targetname: "46" label: "false" color: red }
+edge: { sourcename: "45" targetname: "89" label: "true" color: darkgreen }
+// node 46
+edge: { sourcename: "46" targetname: "47" }
+// node 47
+edge: { sourcename: "47" targetname: "48" label: "false" color: red }
+edge: { sourcename: "47" targetname: "51" label: "true" color: darkgreen }
+// node 48
+edge: { sourcename: "48" targetname: "49" label: "false" color: red }
+edge: { sourcename: "48" targetname: "50" label: "true" color: darkgreen }
+// node 49
+edge: { sourcename: "49" targetname: "50" }
+// node 50
+edge: { sourcename: "50" targetname: "47" label: "true" color: darkgreen }
+edge: { sourcename: "50" targetname: "51" label: "false" color: red }
+// node 51
+edge: { sourcename: "51" targetname: "52" label: "false" color: red }
+edge: { sourcename: "51" targetname: "82" label: "true" color: darkgreen }
+// node 52
+edge: { sourcename: "52" targetname: "53" label: "false" color: red }
+edge: { sourcename: "52" targetname: "83" label: "true" color: darkgreen }
+// node 53
+edge: { sourcename: "53" targetname: "46" label: "true" color: darkgreen }
+edge: { sourcename: "53" targetname: "54" label: "false" color: red }
+// node 54
+edge: { sourcename: "54" targetname: "83" }
+// node 55
+edge: { sourcename: "55" targetname: "56" label: "false" color: red }
+edge: { sourcename: "55" targetname: "66" label: "true" color: darkgreen }
+// node 56
+edge: { sourcename: "56" targetname: "57" label: "false" color: red }
+edge: { sourcename: "56" targetname: "89" label: "true" color: darkgreen }
+// node 57
+edge: { sourcename: "57" targetname: "58" }
+// node 58
+edge: { sourcename: "58" targetname: "59" label: "false" color: red }
+edge: { sourcename: "58" targetname: "62" label: "true" color: darkgreen }
+// node 59
+edge: { sourcename: "59" targetname: "60" label: "false" color: red }
+edge: { sourcename: "59" targetname: "61" label: "true" color: darkgreen }
+// node 60
+edge: { sourcename: "60" targetname: "61" }
+// node 61
+edge: { sourcename: "61" targetname: "58" label: "true" color: darkgreen }
+edge: { sourcename: "61" targetname: "62" label: "false" color: red }
+// node 62
+edge: { sourcename: "62" targetname: "63" label: "false" color: red }
+edge: { sourcename: "62" targetname: "82" label: "true" color: darkgreen }
+// node 63
+edge: { sourcename: "63" targetname: "64" label: "false" color: red }
+edge: { sourcename: "63" targetname: "83" label: "true" color: darkgreen }
+// node 64
+edge: { sourcename: "64" targetname: "57" label: "true" color: darkgreen }
+edge: { sourcename: "64" targetname: "65" label: "false" color: red }
+// node 65
+edge: { sourcename: "65" targetname: "83" }
+// node 66
+edge: { sourcename: "66" targetname: "67" label: "false" color: red }
+edge: { sourcename: "66" targetname: "89" label: "true" color: darkgreen }
+// node 67
+edge: { sourcename: "67" targetname: "68" }
+// node 68
+edge: { sourcename: "68" targetname: "69" label: "false" color: red }
+edge: { sourcename: "68" targetname: "72" label: "true" color: darkgreen }
+// node 69
+edge: { sourcename: "69" targetname: "70" label: "false" color: red }
+edge: { sourcename: "69" targetname: "71" label: "true" color: darkgreen }
+// node 70
+edge: { sourcename: "70" targetname: "71" }
+// node 71
+edge: { sourcename: "71" targetname: "68" label: "true" color: darkgreen }
+edge: { sourcename: "71" targetname: "72" label: "false" color: red }
+// node 72
+edge: { sourcename: "72" targetname: "73" label: "false" color: red }
+edge: { sourcename: "72" targetname: "82" label: "true" color: darkgreen }
+// node 73
+edge: { sourcename: "73" targetname: "74" label: "false" color: red }
+edge: { sourcename: "73" targetname: "76" label: "true" color: darkgreen }
+// node 74
+edge: { sourcename: "74" targetname: "73" label: "true" color: darkgreen }
+edge: { sourcename: "74" targetname: "75" label: "false" color: red }
+// node 75
+edge: { sourcename: "75" targetname: "77" }
+// node 76
+edge: { sourcename: "76" targetname: "77" }
+// node 77
+edge: { sourcename: "77" targetname: "78" label: "false" color: red }
+edge: { sourcename: "77" targetname: "83" label: "true" color: darkgreen }
+// node 78
+edge: { sourcename: "78" targetname: "67" label: "true" color: darkgreen }
+edge: { sourcename: "78" targetname: "79" label: "false" color: red }
+// node 79
+edge: { sourcename: "79" targetname: "83" }
+// node 80
+edge: { sourcename: "80" targetname: "81" label: "false" color: red }
+edge: { sourcename: "80" targetname: "82" label: "true" color: darkgreen }
+// node 81
+edge: { sourcename: "81" targetname: "83" }
+// node 82
+edge: { sourcename: "82" targetname: "83" }
+// node 83
+edge: { sourcename: "83" targetname: "84" label: "false" color: red }
+edge: { sourcename: "83" targetname: "95" label: "true" color: darkgreen }
+// node 84
+edge: { sourcename: "84" targetname: "85" }
+// node 85
+edge: { sourcename: "85" targetname: "86" label: "false" color: red }
+edge: { sourcename: "85" targetname: "89" label: "true" color: darkgreen }
+// node 86
+edge: { sourcename: "86" targetname: "87" label: "false" color: red }
+edge: { sourcename: "86" targetname: "88" label: "true" color: darkgreen }
+// node 87
+edge: { sourcename: "87" targetname: "93" }
+// node 88
+edge: { sourcename: "88" targetname: "94" }
+// node 89
+edge: { sourcename: "89" targetname: "90" label: "false" color: red }
+edge: { sourcename: "89" targetname: "92" label: "true" color: darkgreen }
+// node 90
+edge: { sourcename: "90" targetname: "91" label: "false" color: red }
+edge: { sourcename: "90" targetname: "92" label: "true" color: darkgreen }
+// node 91
+edge: { sourcename: "91" targetname: "96" }
+// node 92
+edge: { sourcename: "92" targetname: "93" }
+// node 93
+edge: { sourcename: "93" targetname: "94" }
+// node 94
+edge: { sourcename: "94" targetname: "96" }
+// node 95
+edge: { sourcename: "95" targetname: "96" }
+// node 96
+edge: { sourcename: "96" targetname: "97" }
+// node 97
+}

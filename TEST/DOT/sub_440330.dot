@@ -1,0 +1,273 @@
+digraph G{
+Node0 [label = "58sub_44033031:
+sub     esp, 1Ch
+mov     eax, [esi+54h]
+mov     ecx, [esi+50h]
+push    ebx
+push    ebp
+lea     ebp, [esi+50h]
+push    edi
+push    eax
+push    ecx
+xor     ebx, ebx
+push    7
+mov     [esp+34h+var_14], ebx
+call    ktn
+mov     ecx, [ebp+0]
+add     esp, 0Ch
+add     dword ptr [esi+10h], 8
+mov     edi, eax
+mov     eax, [ebp+4]
+adc     [esi+14h], ebx
+cmp     eax, ebx
+mov     [esp+28h+Buffer], 2
+mov     [esp+28h+var_4], ebx
+mov     [esp+28h+var_C], eax
+jl      short loc_4403E3"]
+Node1 [label = "jg      short loc_440382"]
+Node2 [label = "cmp     ecx, ebx
+jbe     short loc_4403E3"]
+Node3 [label = "jmp     short loc_440382"]
+Node4 [label = "xor     ebx, ebx"]
+Node5 [label = "cmp     eax, ebx
+jl      short loc_44039D"]
+Node6 [label = "jg      short loc_44038D"]
+Node7 [label = "cmp     ecx, 1
+jbe     short loc_44039D"]
+Node8 [label = "mov     eax, [esi+58h]
+mov     edx, [eax+ecx*8]
+mov     eax, [eax+ecx*8+4]
+mov     [esp+28h+var_18], eax
+jmp     short loc_4403A3"]
+Node9 [label = "xor     edx, edx
+mov     [esp+28h+var_18], ebx"]
+Node10 [label = "mov     eax, [esi+58h]
+mov     ebx, [eax+ecx*8+8]
+sub     ebx, edx
+mov     edx, [eax+ecx*8+0Ch]
+sbb     edx, [esp+28h+var_18]
+mov     [edi+ecx*8+8], ebx
+mov     [edi+ecx*8+0Ch], edx
+mov     eax, [esi+5Ch]
+movzx   eax, byte ptr [eax+ecx+0Fh]
+cdq
+or      [edi+ecx*8+0Ch], eax
+mov     eax, [esp+28h+var_C]
+add     ecx, 0FFFFFFFFh
+adc     eax, 0FFFFFFFFh
+test    eax, eax
+mov     [esp+28h+var_C], eax
+jg      short loc_440380"]
+Node11 [label = "jl      short loc_4403E1"]
+Node12 [label = "test    ecx, ecx
+ja      short loc_440380"]
+Node13 [label = "xor     ebx, ebx"]
+Node14 [label = "mov     eax, [esi+38h]
+push    ebx             ; lpOverlapped
+mov     ebx, ds:WriteFile
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    4               ; nNumberOfBytesToWrite
+lea     edx, [esp+34h+Buffer]
+push    edx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node15 [label = "cmp     [esp+28h+NumberOfBytesWritten], 4
+jnz     loc_44054D"]
+Node16 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    1               ; nNumberOfBytesToWrite
+lea     edx, [esi+4]
+push    edx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node17 [label = "cmp     [esp+28h+NumberOfBytesWritten], 1
+jnz     loc_44054D"]
+Node18 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    1               ; nNumberOfBytesToWrite
+lea     edx, [esi+5]
+push    edx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node19 [label = "cmp     [esp+28h+NumberOfBytesWritten], 1
+jnz     loc_44054D"]
+Node20 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    2               ; nNumberOfBytesToWrite
+lea     edx, [esi+6]
+push    edx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node21 [label = "cmp     [esp+28h+NumberOfBytesWritten], 2
+jnz     loc_44054D"]
+Node22 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    8               ; nNumberOfBytesToWrite
+lea     edx, [esi+8]
+push    edx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node23 [label = "cmp     [esp+28h+NumberOfBytesWritten], 8
+jnz     loc_44054D"]
+Node24 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    8               ; nNumberOfBytesToWrite
+lea     ecx, [esi+10h]
+push    ecx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      loc_44054D"]
+Node25 [label = "cmp     [esp+28h+NumberOfBytesWritten], 8
+jnz     loc_44054D"]
+Node26 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     edx, [esp+2Ch+NumberOfBytesWritten]
+push    edx             ; lpNumberOfBytesWritten
+push    8               ; nNumberOfBytesToWrite
+lea     ecx, [esi+18h]
+push    ecx             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      short loc_44054D"]
+Node27 [label = "cmp     [esp+28h+NumberOfBytesWritten], 8
+jnz     short loc_44054D"]
+Node28 [label = "mov     edx, [ebp+4]
+mov     eax, [ebp+0]
+push    0
+push    8
+push    edx
+push    eax
+call    __allmul
+mov     ecx, [esi+38h]
+push    edx
+push    eax
+lea     edx, [edi+10h]
+push    ecx
+call    sub_43E940
+add     esp, 0Ch
+push    0
+mov     [esp+2Ch+var_18], edx
+mov     edx, [ebp+4]
+push    8
+mov     [esp+30h+NumberOfBytesWritten], eax
+mov     eax, [ebp+0]
+push    edx
+push    eax
+call    __allmul
+cmp     eax, [esp+28h+NumberOfBytesWritten]
+jnz     short loc_44054D"]
+Node29 [label = "cmp     edx, [esp+28h+var_18]
+jnz     short loc_44054D"]
+Node30 [label = "mov     eax, [esi+38h]
+push    0               ; lpOverlapped
+lea     ecx, [esp+2Ch+NumberOfBytesWritten]
+push    ecx             ; lpNumberOfBytesWritten
+push    8               ; nNumberOfBytesToWrite
+push    ebp             ; lpBuffer
+push    eax             ; hFile
+call    ebx ; WriteFile
+test    eax, eax
+jz      short loc_44054D"]
+Node31 [label = "cmp     [esp+28h+NumberOfBytesWritten], 8
+jz      short loc_44055F"]
+Node32 [label = "push    offset aWrite   ; \"write\"
+call    orr
+add     esp, 4
+or      ebx, 0FFFFFFFFh
+jmp     short loc_440563"]
+Node33 [label = "mov     ebx, [esp+28h+var_14]"]
+Node34 [label = "push    edi
+call    r0
+add     esp, 4
+pop     edi
+pop     ebp
+mov     eax, ebx
+mov     byte ptr [esi+6Ch], 0
+pop     ebx
+add     esp, 1Ch
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node14 [color = "green"]
+Node1 -> Node2 [color = "red"]
+Node1 -> Node5 [color = "green"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node14 [color = "green"]
+Node3 -> Node5 [color = "black"]
+Node4 -> Node5 [color = "black"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node9 [color = "green"]
+Node6 -> Node7 [color = "red"]
+Node6 -> Node8 [color = "green"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node9 [color = "green"]
+Node8 -> Node10 [color = "black"]
+Node9 -> Node10 [color = "black"]
+Node10 -> Node4 [color = "green"]
+Node10 -> Node11 [color = "red"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node13 [color = "green"]
+Node12 -> Node4 [color = "green"]
+Node12 -> Node13 [color = "red"]
+Node13 -> Node14 [color = "black"]
+Node14 -> Node15 [color = "red"]
+Node14 -> Node32 [color = "green"]
+Node15 -> Node16 [color = "red"]
+Node15 -> Node32 [color = "green"]
+Node16 -> Node17 [color = "red"]
+Node16 -> Node32 [color = "green"]
+Node17 -> Node18 [color = "red"]
+Node17 -> Node32 [color = "green"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node32 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node32 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node20 -> Node32 [color = "green"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node32 [color = "green"]
+Node22 -> Node23 [color = "red"]
+Node22 -> Node32 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node32 [color = "green"]
+Node24 -> Node25 [color = "red"]
+Node24 -> Node32 [color = "green"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node32 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node26 -> Node32 [color = "green"]
+Node27 -> Node28 [color = "red"]
+Node27 -> Node32 [color = "green"]
+Node28 -> Node29 [color = "red"]
+Node28 -> Node32 [color = "green"]
+Node29 -> Node30 [color = "red"]
+Node29 -> Node32 [color = "green"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node32 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node33 [color = "green"]
+Node32 -> Node34 [color = "black"]
+Node33 -> Node34 [color = "black"]
+}

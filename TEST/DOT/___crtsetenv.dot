@@ -1,0 +1,299 @@
+digraph G{
+Node0 [label = "56___crtsetenv31:
+push    ebp
+mov     ebp, esp
+sub     esp, 14h
+mov     eax, [ebp+arg_0]
+push    ebx
+xor     ebx, ebx
+cmp     eax, ebx
+push    edi
+mov     [ebp+var_10], ebx
+jnz     short loc_4493C4"]
+Node1 [label = "call    __errno
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+or      eax, 0FFFFFFFFh
+jmp     short loc_449430"]
+Node2 [label = "push    esi
+mov     esi, [eax]
+cmp     esi, ebx
+mov     [ebp+Src], esi
+jz      short loc_449421"]
+Node3 [label = "push    3Dh             ; unsigned int
+push    esi             ; unsigned __int8 *
+call    __mbschr
+cmp     eax, ebx
+pop     ecx
+pop     ecx
+mov     [ebp+var_C], eax
+jz      short loc_449421"]
+Node4 [label = "cmp     esi, eax
+jz      short loc_449421"]
+Node5 [label = "xor     ecx, ecx
+cmp     [eax+1], bl
+mov     eax, envp
+setz    cl
+cmp     eax, dword_4E1ADC
+mov     [ebp+var_8], ecx
+jnz     short loc_449407"]
+Node6 [label = "mov     edi, eax
+call    _copy_environ_0
+mov     envp, eax"]
+Node7 [label = "cmp     eax, ebx
+jnz     short loc_44946B"]
+Node8 [label = "cmp     [ebp+arg_4], ebx
+jz      short loc_449434"]
+Node9 [label = "cmp     dword_4E1AE0, ebx
+jz      short loc_449434"]
+Node10 [label = "call    ___wtomb_environ
+test    eax, eax
+jz      short loc_44946B"]
+Node11 [label = "call    __errno
+mov     dword ptr [eax], 16h"]
+Node12 [label = "or      eax, 0FFFFFFFFh"]
+Node13 [label = "pop     esi"]
+Node14 [label = "pop     edi
+pop     ebx
+leave
+retn"]
+Node15 [label = "cmp     [ebp+var_8], ebx
+jnz     loc_4495D3"]
+Node16 [label = "push    4               ; size_t
+call    __malloc_crt
+cmp     eax, ebx
+pop     ecx
+mov     envp, eax
+jz      short loc_44942C"]
+Node17 [label = "mov     [eax], ebx
+cmp     dword_4E1AE0, ebx
+jnz     short loc_44946B"]
+Node18 [label = "push    4               ; size_t
+call    __malloc_crt
+cmp     eax, ebx
+pop     ecx
+mov     dword_4E1AE0, eax
+jz      short loc_44942C"]
+Node19 [label = "mov     [eax], ebx"]
+Node20 [label = "mov     esi, envp
+cmp     esi, ebx
+mov     [ebp+var_14], esi
+jz      short loc_44942C"]
+Node21 [label = "mov     edi, [ebp+var_C]
+sub     edi, [ebp+Src]
+push    [ebp+Src]
+call    _findenv
+mov     edi, eax
+cmp     edi, ebx
+pop     ecx
+jl      short loc_4494DF"]
+Node22 [label = "cmp     [esi], ebx
+jz      short loc_4494DF"]
+Node23 [label = "lea     esi, [esi+edi*4]
+push    dword ptr [esi] ; void *
+call    _free
+cmp     [ebp+var_8], ebx
+pop     ecx
+jnz     short loc_4494BC"]
+Node24 [label = "mov     eax, [ebp+Src]
+mov     [esi], eax
+mov     eax, [ebp+arg_0]
+mov     [eax], ebx
+jmp     loc_449532"]
+Node25 [label = "mov     eax, [esi+4]
+mov     [esi], eax
+mov     eax, [ebp+var_14]
+inc     edi
+lea     esi, [eax+edi*4]"]
+Node26 [label = "cmp     [esi], ebx
+jnz     short loc_4494B0"]
+Node27 [label = "cmp     edi, 3FFFFFFFh
+jnb     short loc_449532"]
+Node28 [label = "push    4               ; Size
+push    edi             ; Count
+push    envp            ; Memory
+call    __recalloc_crt
+add     esp, 0Ch
+cmp     eax, ebx
+jz      short loc_449532"]
+Node29 [label = "jmp     short loc_44952D"]
+Node30 [label = "cmp     [ebp+var_8], ebx
+jnz     loc_4495C5"]
+Node31 [label = "cmp     edi, ebx
+jge     short loc_4494EE"]
+Node32 [label = "neg     edi"]
+Node33 [label = "lea     eax, [edi+2]
+cmp     eax, edi
+jl      loc_44942C"]
+Node34 [label = "cmp     eax, 3FFFFFFFh
+jnb     loc_44942C"]
+Node35 [label = "push    eax             ; Size
+push    4               ; Count
+push    envp            ; Memory
+call    __recalloc_crt
+add     esp, 0Ch
+cmp     eax, ebx
+jz      loc_44942C"]
+Node36 [label = "mov     edx, [ebp+Src]
+lea     ecx, [eax+edi*4]
+mov     [ecx], edx
+mov     [ecx+4], ebx
+mov     ecx, [ebp+arg_0]
+mov     [ecx], ebx"]
+Node37 [label = "mov     envp, eax"]
+Node38 [label = "cmp     [ebp+arg_4], ebx
+jz      short loc_4495AF"]
+Node39 [label = "mov     esi, [ebp+Src]
+push    1               ; int
+push    esi             ; char *
+call    _strlen
+inc     eax
+pop     ecx
+inc     eax
+push    eax             ; size_t
+call    __calloc_crt
+mov     edi, eax
+cmp     edi, ebx
+pop     ecx
+pop     ecx
+jz      short loc_4495AF"]
+Node40 [label = "push    esi             ; Src
+push    esi             ; char *
+call    _strlen
+inc     eax
+pop     ecx
+inc     eax
+push    eax             ; SizeInBytes
+push    edi             ; Dst
+call    _strcpy_s
+add     esp, 0Ch
+test    eax, eax
+jz      short loc_449578"]
+Node41 [label = "push    ebx
+push    ebx
+push    ebx
+push    ebx
+push    ebx
+call    __invoke_watson
+add     esp, 14h"]
+Node42 [label = "mov     ecx, [ebp+var_8]
+mov     eax, edi
+sub     eax, esi
+add     eax, [ebp+var_C]
+mov     [eax], bl
+inc     eax
+neg     ecx
+sbb     ecx, ecx
+not     ecx
+and     ecx, eax
+push    ecx             ; lpValue
+push    edi             ; lpName
+call    ds:SetEnvironmentVariableA
+test    eax, eax
+jnz     short loc_4495A8"]
+Node43 [label = "or      [ebp+var_10], 0FFFFFFFFh
+call    __errno
+mov     dword ptr [eax], 2Ah"]
+Node44 [label = "push    edi             ; void *
+call    _free
+pop     ecx"]
+Node45 [label = "cmp     [ebp+var_8], ebx
+jz      short loc_4495BD"]
+Node46 [label = "push    [ebp+Src]       ; void *
+call    _free
+pop     ecx"]
+Node47 [label = "mov     eax, [ebp+var_10]
+jmp     loc_44942F"]
+Node48 [label = "push    [ebp+Src]       ; void *
+call    _free
+mov     eax, [ebp+arg_0]
+pop     ecx
+mov     [eax], ebx"]
+Node49 [label = "xor     eax, eax
+jmp     loc_44942F"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node2 [color = "green"]
+Node1 -> Node14 [color = "black"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node11 [color = "green"]
+Node3 -> Node4 [color = "red"]
+Node3 -> Node11 [color = "green"]
+Node4 -> Node5 [color = "red"]
+Node4 -> Node11 [color = "green"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node7 [color = "green"]
+Node6 -> Node7 [color = "black"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node20 [color = "green"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node15 [color = "green"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node15 [color = "green"]
+Node10 -> Node11 [color = "red"]
+Node10 -> Node20 [color = "green"]
+Node11 -> Node12 [color = "black"]
+Node12 -> Node13 [color = "black"]
+Node13 -> Node14 [color = "black"]
+Node15 -> Node16 [color = "red"]
+Node15 -> Node49 [color = "green"]
+Node16 -> Node12 [color = "green"]
+Node16 -> Node17 [color = "red"]
+Node17 -> Node18 [color = "red"]
+Node17 -> Node20 [color = "green"]
+Node18 -> Node12 [color = "green"]
+Node18 -> Node19 [color = "red"]
+Node19 -> Node20 [color = "black"]
+Node20 -> Node12 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node30 [color = "green"]
+Node22 -> Node23 [color = "red"]
+Node22 -> Node30 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node26 [color = "green"]
+Node24 -> Node38 [color = "black"]
+Node25 -> Node26 [color = "black"]
+Node26 -> Node25 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node27 -> Node28 [color = "red"]
+Node27 -> Node38 [color = "green"]
+Node28 -> Node29 [color = "red"]
+Node28 -> Node38 [color = "green"]
+Node29 -> Node37 [color = "black"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node48 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node33 [color = "green"]
+Node32 -> Node33 [color = "black"]
+Node33 -> Node12 [color = "green"]
+Node33 -> Node34 [color = "red"]
+Node34 -> Node12 [color = "green"]
+Node34 -> Node35 [color = "red"]
+Node35 -> Node12 [color = "green"]
+Node35 -> Node36 [color = "red"]
+Node36 -> Node37 [color = "black"]
+Node37 -> Node38 [color = "black"]
+Node38 -> Node39 [color = "red"]
+Node38 -> Node45 [color = "green"]
+Node39 -> Node40 [color = "red"]
+Node39 -> Node45 [color = "green"]
+Node40 -> Node41 [color = "red"]
+Node40 -> Node42 [color = "green"]
+Node41 -> Node42 [color = "black"]
+Node42 -> Node43 [color = "red"]
+Node42 -> Node44 [color = "green"]
+Node43 -> Node44 [color = "black"]
+Node44 -> Node45 [color = "black"]
+Node45 -> Node46 [color = "red"]
+Node45 -> Node47 [color = "green"]
+Node46 -> Node47 [color = "black"]
+Node47 -> Node13 [color = "black"]
+Node48 -> Node49 [color = "black"]
+Node49 -> Node13 [color = "black"]
+}

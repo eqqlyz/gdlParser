@@ -1,0 +1,549 @@
+digraph G{
+Node0 [label = "58sub_440C5031:
+sub     esp, 24h
+mov     eax, ___security_cookie
+xor     eax, esp
+mov     [esp+24h+var_4], eax
+push    ebx
+mov     ebx, [esp+28h+hObject]
+push    ebp
+push    esi
+push    edi
+xor     edi, edi
+push    edi             ; lpOverlapped
+lea     eax, [esp+38h+DistanceToMoveHigh]
+push    eax             ; lpNumberOfBytesRead
+push    8               ; nNumberOfBytesToRead
+lea     ecx, [esp+40h+Buffer]
+push    ecx             ; lpBuffer
+push    ebx             ; hFile
+call    ds:ReadFile
+test    eax, eax
+jz      loc_441136"]
+Node1 [label = "cmp     [esp+34h+DistanceToMoveHigh], 8
+jnz     loc_441136"]
+Node2 [label = "mov     edx, 8
+mov     eax, offset aKxzipped; \"kxzipped\"
+lea     ecx, [esp+34h+Buffer]
+lea     ecx, [ecx+0]"]
+Node3 [label = "mov     esi, [ecx]
+cmp     esi, [eax]
+jnz     short loc_440CB8"]
+Node4 [label = "sub     edx, 4
+add     eax, 4
+add     ecx, 4
+cmp     edx, 4
+jnb     short loc_440CA0"]
+Node5 [label = "cmp     edx, edi
+jz      short loc_440D15"]
+Node6 [label = "movzx   esi, byte ptr [ecx]
+movzx   ebp, byte ptr [eax]
+sub     esi, ebp
+jnz     short loc_440D07"]
+Node7 [label = "sub     edx, 1
+add     eax, 1
+add     ecx, 1
+cmp     edx, edi
+jz      short loc_440D15"]
+Node8 [label = "movzx   esi, byte ptr [ecx]
+movzx   ebp, byte ptr [eax]
+sub     esi, ebp
+jnz     short loc_440D07"]
+Node9 [label = "sub     edx, 1
+add     eax, 1
+add     ecx, 1
+cmp     edx, edi
+jz      short loc_440D15"]
+Node10 [label = "movzx   esi, byte ptr [ecx]
+movzx   ebp, byte ptr [eax]
+sub     esi, ebp
+jnz     short loc_440D07"]
+Node11 [label = "sub     edx, 1
+add     eax, 1
+add     ecx, 1
+cmp     edx, edi
+jz      short loc_440D15"]
+Node12 [label = "movzx   esi, byte ptr [ecx]
+movzx   edx, byte ptr [eax]
+sub     esi, edx
+jz      short loc_440D15"]
+Node13 [label = "cmp     esi, edi
+mov     eax, 1
+jg      short loc_440D17"]
+Node14 [label = "or      eax, 0FFFFFFFFh
+jmp     short loc_440D17"]
+Node15 [label = "xor     eax, eax"]
+Node16 [label = "cmp     eax, edi
+jnz     loc_441136"]
+Node17 [label = "push    2               ; dwMoveMethod
+lea     eax, [esp+38h+DistanceToMoveHigh]
+push    eax             ; lpDistanceToMoveHigh
+push    0FFFFFFF8h      ; lDistanceToMove
+push    ebx             ; hFile
+mov     [esp+44h+DistanceToMoveHigh], 0FFFFFFFFh
+call    ds:SetFilePointer
+mov     ecx, [esp+34h+DistanceToMoveHigh]
+push    1
+push    edi
+push    edi
+push    ecx
+mov     esi, eax
+call    __allmul
+mov     ebp, eax
+xor     eax, eax
+add     ebp, esi
+adc     edx, eax
+push    edi             ; lpOverlapped
+add     ebp, 8
+adc     edx, edi
+lea     ecx, [esp+38h+DistanceToMoveHigh]
+push    ecx             ; lpNumberOfBytesRead
+mov     [esp+3Ch+var_10], edx
+push    8               ; nNumberOfBytesToRead
+lea     edx, [esp+40h+var_20]
+push    edx             ; lpBuffer
+push    ebx             ; hFile
+call    ds:ReadFile
+test    eax, eax
+jz      loc_4410F5"]
+Node18 [label = "cmp     [esp+34h+DistanceToMoveHigh], 8
+jnz     loc_4410F5"]
+Node19 [label = "mov     eax, [esp+34h+var_20]
+mov     ecx, [esp+34h+var_1C]
+push    edi
+add     eax, 5
+push    8
+adc     ecx, edi
+push    ecx
+push    eax
+mov     [esp+44h+DistanceToMoveHigh], edi
+call    __allmul
+push    edi
+push    0C0h
+mov     ebx, eax
+mov     esi, edx
+call    sub_411680
+push    0C0h            ; size_t
+mov     edi, eax
+push    0               ; int
+push    edi             ; void *
+call    _memset
+add     esp, 14h
+neg     ebx
+adc     esi, 0
+push    2               ; dwMoveMethod
+neg     esi
+lea     eax, [esp+38h+NumberOfBytesRead]
+push    eax             ; lpDistanceToMoveHigh
+mov     edx, esi
+mov     [esp+3Ch+NumberOfBytesRead], esi
+mov     esi, [esp+3Ch+hObject]
+push    ebx             ; lDistanceToMove
+push    esi             ; hFile
+sar     edx, 1Fh
+call    ds:SetFilePointer
+push    0               ; lpOverlapped
+lea     ecx, [esp+38h+NumberOfBytesRead]
+push    ecx             ; lpNumberOfBytesRead
+push    20h             ; nNumberOfBytesToRead
+push    edi             ; lpBuffer
+push    esi             ; hFile
+call    ds:ReadFile
+mov     eax, dword_4E5110
+mov     ecx, [edi+1Ch]
+mov     ebx, [edi+18h]
+cdq
+cmp     ecx, edx
+jb      loc_4410FF"]
+Node20 [label = "ja      short loc_440E0D"]
+Node21 [label = "cmp     ebx, eax
+jb      loc_4410FF"]
+Node22 [label = "test    ecx, ecx
+ja      loc_4410FF"]
+Node23 [label = "jb      short loc_440E23"]
+Node24 [label = "cmp     ebx, 100000h
+ja      loc_4410FF"]
+Node25 [label = "mov     ebx, [esp+34h+var_20]
+mov     eax, [esp+34h+var_1C]
+push    0
+mov     edx, ebx
+add     edx, 5
+push    8
+adc     eax, 0
+push    eax
+push    edx
+call    __allmul
+add     eax, [edi+10h]
+adc     edx, [edi+14h]
+cmp     ebp, eax
+jnz     short loc_440E4E"]
+Node26 [label = "cmp     [esp+34h+var_10], edx
+jz      short loc_440E64"]
+Node27 [label = "push    edi
+call    sub_40F950
+push    esi             ; hObject
+call    sub_4405D0
+push    offset aDiskCompressio; \"disk compression - bad meta compressedL\"...
+jmp     loc_441110"]
+Node28 [label = "mov     [edi+50h], ebx
+mov     ecx, [esp+34h+var_1C]
+mov     [edi+54h], ecx
+mov     edx, [esp+34h+var_1C]
+mov     eax, [esp+34h+var_20]
+push    edx
+push    eax
+push    7
+call    ktn
+mov     ecx, [edi+54h]
+mov     edx, [edi+50h]
+add     esp, 0Ch
+push    0
+push    8
+push    ecx
+mov     ebx, eax
+push    edx
+mov     [edi+58h], ebx
+call    __allmul
+push    edx             ; int
+push    eax             ; NumberOfBytesRead
+add     ebx, 10h
+push    ebx             ; lpBuffer
+push    esi             ; hFile
+call    sub_43E900
+mov     ecx, [edi+50h]
+add     esp, 10h
+push    0
+mov     ebx, eax
+mov     eax, [edi+54h]
+push    8
+push    eax
+push    ecx
+mov     ebp, edx
+call    __allmul
+cmp     eax, ebx
+jnz     short loc_440EC4"]
+Node29 [label = "cmp     edx, ebp
+jz      short loc_440F04"]
+Node30 [label = "mov     edx, [edi+58h]
+push    edx
+call    r0
+push    edi
+call    sub_40F950
+push    esi             ; hObject
+call    sub_4405D0
+push    offset aDiskCompress_0; \"disk compression - bad meta sizes\\n\"
+call    sub_401890
+add     esp, 10h
+push    0Dh             ; dwErrCode
+call    ds:SetLastError
+pop     edi
+pop     esi
+pop     ebp
+or      eax, 0FFFFFFFFh
+pop     ebx
+mov     ecx, [esp+24h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 24h
+retn"]
+Node31 [label = "mov     eax, [esp+34h+var_1C]
+mov     ecx, [esp+34h+var_20]
+push    eax
+push    ecx
+push    4
+call    ktn
+mov     [edi+5Ch], eax
+mov     ebp, [esp+40h+var_1C]
+add     esp, 0Ch
+xor     ebx, ebx
+test    ebp, ebp
+jb      loc_440FCE"]
+Node32 [label = "ja      short loc_440F33"]
+Node33 [label = "mov     edx, [esp+34h+var_20]
+test    edx, edx
+jbe     short loc_440FA8"]
+Node34 [label = "mov     esi, 10h
+jmp     short loc_440F40"]
+Node35 [label = "mov     edx, [edi+58h]
+mov     eax, [esi+edx]
+mov     edx, [esi+edx+4]
+mov     cl, 20h
+call    __allshr
+mov     ecx, [edi+5Ch]
+and     al, 3
+mov     [ecx+ebx+10h], al
+mov     edx, [edi+5Ch]
+movzx   eax, byte ptr [edx+ebx+10h]
+mov     ecx, [edi+58h]
+shr     eax, 1
+or      [esp+34h+DistanceToMoveHigh], eax
+test    ebx, ebx
+mov     dword ptr [esi+ecx+4], 0
+jle     short loc_440F89"]
+Node36 [label = "mov     eax, [edi+58h]
+mov     edx, [esi+eax-8]
+add     [esi+eax], edx
+mov     ecx, [esi+eax-4]
+adc     [esi+eax+4], ecx"]
+Node37 [label = "mov     ebp, [esp+34h+var_1C]
+add     ebx, 1
+mov     eax, ebx
+cdq
+add     esi, 8
+cmp     edx, ebp
+jb      short loc_440F40"]
+Node38 [label = "ja      short loc_440FCA"]
+Node39 [label = "mov     edx, [esp+34h+var_20]
+cmp     eax, edx
+jb      short loc_440F40"]
+Node40 [label = "mov     esi, [esp+34h+hObject]"]
+Node41 [label = "mov     ebx, [edi+58h]
+mov     eax, [ebx+edx*8+8]
+mov     ecx, [ebx+edx*8+0Ch]
+add     eax, 8
+adc     ecx, 0
+cmp     eax, [edi+10h]
+jnz     short loc_440FC3"]
+Node42 [label = "cmp     ecx, [edi+14h]
+jz      short loc_440FD4"]
+Node43 [label = "mov     eax, 1
+jmp     short loc_440FD6"]
+Node44 [label = "mov     esi, [esp+34h+hObject]"]
+Node45 [label = "mov     edx, [esp+34h+var_20]
+jmp     short loc_440FA8"]
+Node46 [label = "xor     eax, eax"]
+Node47 [label = "xor     ecx, ecx
+and     eax, edx
+and     ecx, ebp
+or      eax, ecx
+jz      short loc_441020"]
+Node48 [label = "push    ebx
+call    r0
+mov     edx, [edi+5Ch]
+push    edx
+call    r0
+push    edi
+call    sub_40F950
+push    offset aDiskCompress_1; \"disk compression - bad meta size\\n\"
+call    sub_401890
+add     esp, 10h
+push    0Dh             ; dwErrCode
+call    ds:SetLastError
+pop     edi
+pop     esi
+pop     ebp
+or      eax, 0FFFFFFFFh
+pop     ebx
+mov     ecx, [esp+24h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 24h
+retn"]
+Node49 [label = "mov     ebp, [esp+34h+DistanceToMoveHigh]
+xor     ebx, ebx
+cmp     ebp, ebx
+jz      short loc_441077"]
+Node50 [label = "call    sub_43F690
+cmp     eax, 0FFFFFFFFh
+jnz     short loc_441077"]
+Node51 [label = "mov     eax, [edi+58h]
+push    eax
+call    r0
+mov     ecx, [edi+5Ch]
+push    ecx
+call    r0
+push    esi             ; hObject
+call    sub_40A920
+push    offset aZlib    ; \"zlib\\n\"
+call    sub_401890
+add     esp, 10h
+push    32h             ; dwErrCode
+call    ds:SetLastError
+pop     edi
+pop     esi
+pop     ebp
+or      eax, 0FFFFFFFFh
+pop     ebx
+mov     ecx, [esp+24h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 24h
+retn"]
+Node52 [label = "cmp     dword ptr [edi], 2
+jnb     short loc_44108B"]
+Node53 [label = "cmp     ebp, ebx
+setnz   dl
+add     dl, 1
+mov     [edi+4], dl
+mov     byte ptr [edi+5], 6"]
+Node54 [label = "mov     eax, [edi+1Ch]
+mov     ecx, [edi+18h]
+push    eax
+push    ecx
+push    4
+call    ktn
+add     esp, 0Ch
+mov     [edi+60h], eax
+mov     [edi+48h], ebx
+mov     [edi+4Ch], ebx
+mov     [edi+38h], esi
+call    GetCurrentThreadId
+lea     edx, [edi+78h]
+push    edx             ; lpCriticalSection
+mov     [edi+70h], eax
+call    ds:InitializeCriticalSection
+lea     esi, [edi+90h]
+call    sub_43EB70
+mov     eax, [edi+54h]
+mov     ecx, [edi+50h]
+push    eax
+push    ecx
+call    sub_411680
+mov     edx, [edi+50h]
+push    edx             ; size_t
+push    0               ; int
+push    eax             ; void *
+mov     [edi+74h], eax
+call    _memset
+mov     eax, [esp+48h+hObject]
+push    edi
+call    sub_43ECF0
+mov     ebx, [esp+4Ch+hObject]
+add     esp, 18h
+xor     edi, edi"]
+Node55 [label = "push    edi
+lea     eax, [esp+38h+NumberOfBytesRead]
+push    eax
+push    8
+jmp     short loc_44113D"]
+Node56 [label = "push    edi
+call    sub_40F950
+push    esi             ; hObject
+call    sub_4405D0
+push    offset aDiskCompress_2; \"disk compression - bad logicalBlockSize\"..."]
+Node57 [label = "call    sub_401890
+add     esp, 0Ch
+push    0Dh             ; dwErrCode
+call    ds:SetLastError
+pop     edi
+pop     esi
+pop     ebp
+or      eax, 0FFFFFFFFh
+pop     ebx
+mov     ecx, [esp+24h+var_4]
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 24h
+retn"]
+Node58 [label = "push    edi             ; dwMoveMethod
+lea     ecx, [esp+38h+NumberOfBytesRead]
+push    ecx             ; lpDistanceToMoveHigh
+push    edi             ; lDistanceToMove"]
+Node59 [label = "push    ebx             ; hFile
+mov     [esp+44h+NumberOfBytesRead], edi
+call    ds:SetFilePointer
+mov     ecx, [esp+34h+var_4]
+pop     edi
+pop     esi
+pop     ebp
+mov     eax, ebx
+pop     ebx
+xor     ecx, esp
+call    @__security_check_cookie@4; __security_check_cookie(x)
+add     esp, 24h
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node58 [color = "green"]
+Node1 -> Node2 [color = "red"]
+Node1 -> Node58 [color = "green"]
+Node2 -> Node3 [color = "black"]
+Node3 -> Node4 [color = "red"]
+Node3 -> Node6 [color = "green"]
+Node4 -> Node3 [color = "green"]
+Node4 -> Node5 [color = "red"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node15 [color = "green"]
+Node6 -> Node7 [color = "red"]
+Node6 -> Node13 [color = "green"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node15 [color = "green"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node13 [color = "green"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node15 [color = "green"]
+Node10 -> Node11 [color = "red"]
+Node10 -> Node13 [color = "green"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node15 [color = "green"]
+Node12 -> Node13 [color = "red"]
+Node12 -> Node15 [color = "green"]
+Node13 -> Node14 [color = "red"]
+Node13 -> Node16 [color = "green"]
+Node14 -> Node16 [color = "black"]
+Node15 -> Node16 [color = "black"]
+Node16 -> Node17 [color = "red"]
+Node16 -> Node58 [color = "green"]
+Node17 -> Node18 [color = "red"]
+Node17 -> Node55 [color = "green"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node55 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node56 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node20 -> Node22 [color = "green"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node56 [color = "green"]
+Node22 -> Node23 [color = "red"]
+Node22 -> Node56 [color = "green"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node25 [color = "green"]
+Node24 -> Node25 [color = "red"]
+Node24 -> Node56 [color = "green"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node27 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node26 -> Node28 [color = "green"]
+Node27 -> Node57 [color = "black"]
+Node28 -> Node29 [color = "red"]
+Node28 -> Node30 [color = "green"]
+Node29 -> Node30 [color = "red"]
+Node29 -> Node31 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node45 [color = "green"]
+Node32 -> Node33 [color = "red"]
+Node32 -> Node34 [color = "green"]
+Node33 -> Node34 [color = "red"]
+Node33 -> Node41 [color = "green"]
+Node34 -> Node35 [color = "black"]
+Node35 -> Node36 [color = "red"]
+Node35 -> Node37 [color = "green"]
+Node36 -> Node37 [color = "black"]
+Node37 -> Node35 [color = "green"]
+Node37 -> Node38 [color = "red"]
+Node38 -> Node39 [color = "red"]
+Node38 -> Node44 [color = "green"]
+Node39 -> Node35 [color = "green"]
+Node39 -> Node40 [color = "red"]
+Node40 -> Node41 [color = "black"]
+Node41 -> Node42 [color = "red"]
+Node41 -> Node43 [color = "green"]
+Node42 -> Node43 [color = "red"]
+Node42 -> Node46 [color = "green"]
+Node43 -> Node47 [color = "black"]
+Node44 -> Node45 [color = "black"]
+Node45 -> Node41 [color = "black"]
+Node46 -> Node47 [color = "black"]
+Node47 -> Node48 [color = "red"]
+Node47 -> Node49 [color = "green"]
+Node49 -> Node50 [color = "red"]
+Node49 -> Node52 [color = "green"]
+Node50 -> Node51 [color = "red"]
+Node50 -> Node52 [color = "green"]
+Node52 -> Node53 [color = "red"]
+Node52 -> Node54 [color = "green"]
+Node53 -> Node54 [color = "black"]
+Node54 -> Node55 [color = "black"]
+Node55 -> Node59 [color = "black"]
+Node56 -> Node57 [color = "black"]
+Node58 -> Node59 [color = "black"]
+}

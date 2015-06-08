@@ -1,0 +1,278 @@
+digraph G{
+Node0 [label = "56__putenv_helper31:
+push    ebp
+mov     ebp, esp
+push    ecx
+push    ecx
+push    esi
+xor     esi, esi
+cmp     dword_4E6264, esi
+mov     [ebp+var_8], esi
+jnz     short loc_44285C"]
+Node1 [label = "or      eax, 0FFFFFFFFh
+jmp     loc_442A4D"]
+Node2 [label = "push    ebx
+mov     ebx, [ebp+Src]
+cmp     ebx, esi
+jnz     short loc_442884"]
+Node3 [label = "call    __errno
+push    esi
+push    esi
+push    esi
+push    esi
+push    esi
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+or      eax, 0FFFFFFFFh
+jmp     loc_442A4C"]
+Node4 [label = "cmp     [ebp+Str], esi
+push    edi
+jnz     short loc_4428E2"]
+Node5 [label = "push    3Dh             ; unsigned int
+push    ebx             ; unsigned __int8 *
+call    __mbschr
+cmp     eax, esi
+pop     ecx
+pop     ecx
+jz      short loc_4428B3"]
+Node6 [label = "mov     ecx, eax
+sub     ecx, ebx
+mov     edi, 7FFFh
+cmp     ecx, edi
+jge     short loc_442904"]
+Node7 [label = "inc     eax
+push    edi             ; MaxCount
+push    eax             ; Str
+call    _strnlen
+cmp     eax, edi
+pop     ecx
+pop     ecx
+jnb     short loc_442904"]
+Node8 [label = "push    ebx             ; char *
+call    _strlen
+mov     edi, eax
+inc     edi
+push    1               ; int
+push    edi             ; size_t
+call    __calloc_crt
+add     esp, 0Ch
+cmp     eax, esi
+mov     [ebp+var_8], eax
+jz      loc_442A44"]
+Node9 [label = "push    ebx             ; Src
+push    edi             ; SizeInBytes
+push    eax             ; Dst
+call    _strcpy_s
+add     esp, 0Ch
+jmp     loc_442963"]
+Node10 [label = "mov     edi, 7FFFh
+push    edi             ; MaxCount
+push    ebx             ; Str
+call    _strnlen
+push    edi             ; MaxCount
+push    [ebp+Str]       ; Str
+mov     ebx, eax
+call    _strnlen
+add     esp, 10h
+cmp     ebx, edi
+jnb     short loc_442904"]
+Node11 [label = "cmp     eax, edi
+jb      short loc_442921"]
+Node12 [label = "call    __errno
+push    esi
+push    esi
+push    esi
+push    esi
+push    esi
+mov     dword ptr [eax], 16h
+call    __invalid_parameter
+add     esp, 14h
+jmp     loc_442A44"]
+Node13 [label = "lea     edi, [eax+ebx+2]
+push    1               ; int
+push    edi             ; size_t
+call    __calloc_crt
+cmp     eax, esi
+pop     ecx
+pop     ecx
+mov     [ebp+var_8], eax
+jz      loc_442A44"]
+Node14 [label = "push    [ebp+Src]       ; Src
+push    edi             ; SizeInBytes
+push    eax             ; Dst
+call    _strcpy_s
+mov     eax, [ebp+var_8]
+push    [ebp+Str]       ; Src
+mov     byte ptr [ebx+eax], 3Dh
+mov     eax, [ebp+var_8]
+inc     ebx
+sub     edi, ebx
+add     ebx, eax
+push    edi             ; SizeInBytes
+push    ebx             ; Dst
+call    _strcpy_s
+mov     ebx, [ebp+Src]
+add     esp, 18h"]
+Node15 [label = "lea     eax, [ebp+var_8]
+push    1
+push    eax
+call    ___crtsetenv
+test    eax, eax
+pop     ecx
+pop     ecx
+jz      short loc_442985"]
+Node16 [label = "cmp     [ebp+var_8], esi
+jz      loc_442A44"]
+Node17 [label = "push    [ebp+var_8]
+jmp     loc_442A3E"]
+Node18 [label = "cmp     dword_4E1AE0, esi
+jz      loc_442A49"]
+Node19 [label = "mov     edi, ds:MultiByteToWideChar
+push    esi             ; cchWideChar
+push    esi             ; lpWideCharStr
+push    0FFFFFFFFh      ; cbMultiByte
+push    ebx             ; lpMultiByteStr
+push    esi             ; dwFlags
+push    esi             ; CodePage
+mov     [ebp+cbMultiByte], esi
+call    edi ; MultiByteToWideChar
+mov     ebx, eax
+cmp     ebx, esi
+jz      short loc_442A19"]
+Node20 [label = "cmp     [ebp+Str], esi
+jz      short loc_4429C1"]
+Node21 [label = "push    esi             ; cchWideChar
+push    esi             ; lpWideCharStr
+push    0FFFFFFFFh      ; cbMultiByte
+push    [ebp+Str]       ; lpMultiByteStr
+push    esi             ; dwFlags
+push    esi             ; CodePage
+call    edi ; MultiByteToWideChar
+cmp     eax, esi
+jz      short loc_442A19"]
+Node22 [label = "lea     ebx, [ebx+eax+1]"]
+Node23 [label = "push    2               ; int
+push    ebx             ; size_t
+call    __calloc_crt
+cmp     eax, esi
+pop     ecx
+pop     ecx
+mov     [ebp+cbMultiByte], eax
+jz      short loc_442A44"]
+Node24 [label = "push    ebx             ; cchWideChar
+push    eax             ; lpWideCharStr
+push    0FFFFFFFFh      ; cbMultiByte
+push    [ebp+Src]       ; lpMultiByteStr
+push    esi             ; dwFlags
+push    esi             ; CodePage
+call    edi ; MultiByteToWideChar
+test    eax, eax
+jz      short loc_442A10"]
+Node25 [label = "cmp     [ebp+Str], esi
+jz      short loc_442A26"]
+Node26 [label = "push    [ebp+cbMultiByte]; wchar_t *
+call    _wcslen
+pop     ecx
+mov     ecx, [ebp+cbMultiByte]
+mov     word ptr [ecx+eax*2], 3Dh
+mov     ecx, [ebp+cbMultiByte]
+inc     eax
+sub     ebx, eax
+push    ebx             ; cchWideChar
+lea     eax, [ecx+eax*2]
+push    eax             ; lpWideCharStr
+push    0FFFFFFFFh      ; cbMultiByte
+push    [ebp+Str]       ; lpMultiByteStr
+push    esi             ; dwFlags
+push    esi             ; CodePage
+call    edi ; MultiByteToWideChar
+test    eax, eax
+jnz     short loc_442A26"]
+Node27 [label = "push    [ebp+cbMultiByte]; void *
+call    _free
+pop     ecx"]
+Node28 [label = "call    __errno
+mov     dword ptr [eax], 2Ah
+jmp     short loc_442A44"]
+Node29 [label = "lea     eax, [ebp+cbMultiByte]
+push    esi             ; int
+push    eax             ; cbMultiByte
+call    ___crtwsetenv
+test    eax, eax
+pop     ecx
+pop     ecx
+jz      short loc_442A49"]
+Node30 [label = "cmp     [ebp+cbMultiByte], esi
+jz      short loc_442A44"]
+Node31 [label = "push    [ebp+cbMultiByte]; void *"]
+Node32 [label = "call    _free
+pop     ecx"]
+Node33 [label = "or      eax, 0FFFFFFFFh
+jmp     short loc_442A4B"]
+Node34 [label = "xor     eax, eax"]
+Node35 [label = "pop     edi"]
+Node36 [label = "pop     ebx"]
+Node37 [label = "pop     esi
+leave
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node2 [color = "green"]
+Node1 -> Node37 [color = "black"]
+Node2 -> Node3 [color = "red"]
+Node2 -> Node4 [color = "green"]
+Node3 -> Node36 [color = "black"]
+Node4 -> Node5 [color = "red"]
+Node4 -> Node10 [color = "green"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node8 [color = "green"]
+Node6 -> Node7 [color = "red"]
+Node6 -> Node12 [color = "green"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node12 [color = "green"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node33 [color = "green"]
+Node9 -> Node15 [color = "black"]
+Node10 -> Node11 [color = "red"]
+Node10 -> Node12 [color = "green"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node13 [color = "green"]
+Node12 -> Node33 [color = "black"]
+Node13 -> Node14 [color = "red"]
+Node13 -> Node33 [color = "green"]
+Node14 -> Node15 [color = "black"]
+Node15 -> Node16 [color = "red"]
+Node15 -> Node18 [color = "green"]
+Node16 -> Node17 [color = "red"]
+Node16 -> Node33 [color = "green"]
+Node17 -> Node32 [color = "black"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node34 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node28 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node20 -> Node23 [color = "green"]
+Node21 -> Node22 [color = "red"]
+Node21 -> Node28 [color = "green"]
+Node22 -> Node23 [color = "black"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node33 [color = "green"]
+Node24 -> Node25 [color = "red"]
+Node24 -> Node27 [color = "green"]
+Node25 -> Node26 [color = "red"]
+Node25 -> Node29 [color = "green"]
+Node26 -> Node27 [color = "red"]
+Node26 -> Node29 [color = "green"]
+Node27 -> Node28 [color = "black"]
+Node28 -> Node33 [color = "black"]
+Node29 -> Node30 [color = "red"]
+Node29 -> Node34 [color = "green"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node33 [color = "green"]
+Node31 -> Node32 [color = "black"]
+Node32 -> Node33 [color = "black"]
+Node33 -> Node35 [color = "black"]
+Node34 -> Node35 [color = "black"]
+Node35 -> Node36 [color = "black"]
+Node36 -> Node37 [color = "black"]
+}

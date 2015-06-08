@@ -1,0 +1,271 @@
+digraph G{
+Node0 [label = "56_parse_cmdline31:
+push    ebp
+mov     ebp, esp
+push    ecx
+mov     ecx, [ebp+arg_8]
+push    ebx
+xor     eax, eax
+cmp     [ebp+arg_0], eax
+push    esi
+mov     [edi], eax
+mov     esi, edx
+mov     edx, [ebp+arg_4]
+mov     dword ptr [ecx], 1
+jz      short loc_44D329"]
+Node1 [label = "mov     ebx, [ebp+arg_0]
+add     [ebp+arg_0], 4
+mov     [ebx], edx"]
+Node2 [label = "mov     [ebp+var_4], eax"]
+Node3 [label = "cmp     byte ptr [esi], 22h
+jnz     short loc_44D341"]
+Node4 [label = "xor     eax, eax
+cmp     [ebp+var_4], eax
+mov     bl, 22h
+setz    al
+inc     esi
+mov     [ebp+var_4], eax
+jmp     short loc_44D37D"]
+Node5 [label = "inc     dword ptr [edi]
+test    edx, edx
+jz      short loc_44D34F"]
+Node6 [label = "mov     al, [esi]
+mov     [edx], al
+inc     edx
+mov     [ebp+arg_4], edx"]
+Node7 [label = "mov     bl, [esi]
+movzx   eax, bl
+push    eax             ; unsigned int
+inc     esi
+call    __ismbblead
+test    eax, eax
+pop     ecx
+jz      short loc_44D373"]
+Node8 [label = "inc     dword ptr [edi]
+cmp     [ebp+arg_4], 0
+jz      short loc_44D372"]
+Node9 [label = "mov     ecx, [ebp+arg_4]
+mov     al, [esi]
+inc     [ebp+arg_4]
+mov     [ecx], al"]
+Node10 [label = "inc     esi"]
+Node11 [label = "test    bl, bl
+mov     edx, [ebp+arg_4]
+mov     ecx, [ebp+arg_8]
+jz      short loc_44D3AF"]
+Node12 [label = "cmp     [ebp+var_4], 0
+jnz     short loc_44D32C"]
+Node13 [label = "cmp     bl, 20h
+jz      short loc_44D38D"]
+Node14 [label = "cmp     bl, 9
+jnz     short loc_44D32C"]
+Node15 [label = "test    edx, edx
+jz      short loc_44D395"]
+Node16 [label = "mov     byte ptr [edx-1], 0"]
+Node17 [label = "and     [ebp+var_4], 0"]
+Node18 [label = "cmp     byte ptr [esi], 0
+jz      loc_44D48B"]
+Node19 [label = "mov     al, [esi]
+cmp     al, 20h
+jz      short loc_44D3AC"]
+Node20 [label = "cmp     al, 9
+jnz     short loc_44D3B2"]
+Node21 [label = "inc     esi
+jmp     short loc_44D3A2"]
+Node22 [label = "dec     esi
+jmp     short loc_44D395"]
+Node23 [label = "cmp     byte ptr [esi], 0
+jz      loc_44D48B"]
+Node24 [label = "cmp     [ebp+arg_0], 0
+jz      short loc_44D3CA"]
+Node25 [label = "mov     eax, [ebp+arg_0]
+add     [ebp+arg_0], 4
+mov     [eax], edx"]
+Node26 [label = "inc     dword ptr [ecx]"]
+Node27 [label = "xor     ebx, ebx
+inc     ebx
+xor     ecx, ecx
+jmp     short loc_44D3D5"]
+Node28 [label = "inc     esi
+inc     ecx"]
+Node29 [label = "cmp     byte ptr [esi], 5Ch
+jz      short loc_44D3D3"]
+Node30 [label = "cmp     byte ptr [esi], 22h
+jnz     short loc_44D405"]
+Node31 [label = "test    cl, 1
+jnz     short loc_44D403"]
+Node32 [label = "cmp     [ebp+var_4], 0
+jz      short loc_44D3F6"]
+Node33 [label = "lea     eax, [esi+1]
+cmp     byte ptr [eax], 22h
+jnz     short loc_44D3F6"]
+Node34 [label = "mov     esi, eax
+jmp     short loc_44D403"]
+Node35 [label = "xor     eax, eax
+xor     ebx, ebx
+cmp     [ebp+var_4], eax
+setz    al
+mov     [ebp+var_4], eax"]
+Node36 [label = "shr     ecx, 1"]
+Node37 [label = "test    ecx, ecx
+jz      short loc_44D41B"]
+Node38 [label = "dec     ecx
+test    edx, edx
+jz      short loc_44D412"]
+Node39 [label = "mov     byte ptr [edx], 5Ch
+inc     edx"]
+Node40 [label = "inc     dword ptr [edi]
+test    ecx, ecx
+jnz     short loc_44D409"]
+Node41 [label = "mov     [ebp+arg_4], edx"]
+Node42 [label = "mov     al, [esi]
+test    al, al
+jz      short loc_44D476"]
+Node43 [label = "cmp     [ebp+var_4], 0
+jnz     short loc_44D42F"]
+Node44 [label = "cmp     al, 20h
+jz      short loc_44D476"]
+Node45 [label = "cmp     al, 9
+jz      short loc_44D476"]
+Node46 [label = "test    ebx, ebx
+jz      short loc_44D470"]
+Node47 [label = "test    edx, edx
+movsx   eax, al
+push    eax             ; unsigned int
+jz      short loc_44D45E"]
+Node48 [label = "call    __ismbblead
+test    eax, eax
+pop     ecx
+jz      short loc_44D452"]
+Node49 [label = "mov     al, [esi]
+mov     ecx, [ebp+arg_4]
+inc     [ebp+arg_4]
+mov     [ecx], al
+inc     esi
+inc     dword ptr [edi]"]
+Node50 [label = "mov     ecx, [ebp+arg_4]
+mov     al, [esi]
+inc     [ebp+arg_4]
+mov     [ecx], al
+jmp     short loc_44D46B"]
+Node51 [label = "call    __ismbblead
+test    eax, eax
+pop     ecx
+jz      short loc_44D46B"]
+Node52 [label = "inc     esi
+inc     dword ptr [edi]"]
+Node53 [label = "inc     dword ptr [edi]
+mov     edx, [ebp+arg_4]"]
+Node54 [label = "inc     esi
+jmp     loc_44D3CC"]
+Node55 [label = "test    edx, edx
+jz      short loc_44D481"]
+Node56 [label = "mov     byte ptr [edx], 0
+inc     edx
+mov     [ebp+arg_4], edx"]
+Node57 [label = "inc     dword ptr [edi]
+mov     ecx, [ebp+arg_8]
+jmp     loc_44D399"]
+Node58 [label = "mov     eax, [ebp+arg_0]
+test    eax, eax
+pop     esi
+pop     ebx
+jz      short loc_44D497"]
+Node59 [label = "and     dword ptr [eax], 0"]
+Node60 [label = "inc     dword ptr [ecx]
+leave
+retn"]
+Node0 -> Node1 [color = "red"]
+Node0 -> Node2 [color = "green"]
+Node1 -> Node2 [color = "black"]
+Node2 -> Node3 [color = "black"]
+Node3 -> Node4 [color = "red"]
+Node3 -> Node5 [color = "green"]
+Node4 -> Node12 [color = "black"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node7 [color = "green"]
+Node6 -> Node7 [color = "black"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node11 [color = "green"]
+Node8 -> Node9 [color = "red"]
+Node8 -> Node10 [color = "green"]
+Node9 -> Node10 [color = "black"]
+Node10 -> Node11 [color = "black"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node22 [color = "green"]
+Node12 -> Node3 [color = "green"]
+Node12 -> Node13 [color = "red"]
+Node13 -> Node14 [color = "red"]
+Node13 -> Node15 [color = "green"]
+Node14 -> Node3 [color = "green"]
+Node14 -> Node15 [color = "red"]
+Node15 -> Node16 [color = "red"]
+Node15 -> Node17 [color = "green"]
+Node16 -> Node17 [color = "black"]
+Node17 -> Node18 [color = "black"]
+Node18 -> Node19 [color = "red"]
+Node18 -> Node58 [color = "green"]
+Node19 -> Node20 [color = "red"]
+Node19 -> Node21 [color = "green"]
+Node20 -> Node21 [color = "red"]
+Node20 -> Node23 [color = "green"]
+Node21 -> Node19 [color = "black"]
+Node22 -> Node17 [color = "black"]
+Node23 -> Node24 [color = "red"]
+Node23 -> Node58 [color = "green"]
+Node24 -> Node25 [color = "red"]
+Node24 -> Node26 [color = "green"]
+Node25 -> Node26 [color = "black"]
+Node26 -> Node27 [color = "black"]
+Node27 -> Node29 [color = "black"]
+Node28 -> Node29 [color = "black"]
+Node29 -> Node28 [color = "green"]
+Node29 -> Node30 [color = "red"]
+Node30 -> Node31 [color = "red"]
+Node30 -> Node37 [color = "green"]
+Node31 -> Node32 [color = "red"]
+Node31 -> Node36 [color = "green"]
+Node32 -> Node33 [color = "red"]
+Node32 -> Node35 [color = "green"]
+Node33 -> Node34 [color = "red"]
+Node33 -> Node35 [color = "green"]
+Node34 -> Node36 [color = "black"]
+Node35 -> Node36 [color = "black"]
+Node36 -> Node37 [color = "black"]
+Node37 -> Node38 [color = "red"]
+Node37 -> Node42 [color = "green"]
+Node38 -> Node39 [color = "red"]
+Node38 -> Node40 [color = "green"]
+Node39 -> Node40 [color = "black"]
+Node40 -> Node38 [color = "green"]
+Node40 -> Node41 [color = "red"]
+Node41 -> Node42 [color = "black"]
+Node42 -> Node43 [color = "red"]
+Node42 -> Node55 [color = "green"]
+Node43 -> Node44 [color = "red"]
+Node43 -> Node46 [color = "green"]
+Node44 -> Node45 [color = "red"]
+Node44 -> Node55 [color = "green"]
+Node45 -> Node46 [color = "red"]
+Node45 -> Node55 [color = "green"]
+Node46 -> Node47 [color = "red"]
+Node46 -> Node54 [color = "green"]
+Node47 -> Node48 [color = "red"]
+Node47 -> Node51 [color = "green"]
+Node48 -> Node49 [color = "red"]
+Node48 -> Node50 [color = "green"]
+Node49 -> Node50 [color = "black"]
+Node50 -> Node53 [color = "black"]
+Node51 -> Node52 [color = "red"]
+Node51 -> Node53 [color = "green"]
+Node52 -> Node53 [color = "black"]
+Node53 -> Node54 [color = "black"]
+Node54 -> Node27 [color = "black"]
+Node55 -> Node56 [color = "red"]
+Node55 -> Node57 [color = "green"]
+Node56 -> Node57 [color = "black"]
+Node57 -> Node18 [color = "black"]
+Node58 -> Node59 [color = "red"]
+Node58 -> Node60 [color = "green"]
+Node59 -> Node60 [color = "black"]
+}

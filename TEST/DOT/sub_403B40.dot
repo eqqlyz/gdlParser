@@ -1,0 +1,416 @@
+digraph G{
+Node0 [label = "58sub_403B4031:
+sub     esp, 148h
+push    ebx
+push    ebp
+push    esi
+push    edi
+mov     edi, [esp+158h+arg_0]
+xor     ecx, ecx
+lea     eax, [edi+1Dh]"]
+Node1 [label = "xor     edx, edx
+mov     dh, [eax-1]
+movzx   esi, byte ptr [eax+1]
+add     ecx, 4
+add     eax, 10h
+mov     dl, [eax-10h]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-0Eh]
+shl     edx, 8
+or      edx, esi
+mov     [esp+ecx*4+158h+var_150], edx
+xor     edx, edx
+mov     dh, [eax-0Dh]
+movzx   esi, byte ptr [eax-0Bh]
+mov     dl, [eax-0Ch]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-0Ah]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-7]
+mov     [esp+ecx*4+158h+var_14C], edx
+xor     edx, edx
+mov     dh, [eax-9]
+mov     dl, [eax-8]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-6]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-3]
+mov     [esp+ecx*4+158h+var_148], edx
+xor     edx, edx
+mov     dh, [eax-5]
+mov     dl, [eax-4]
+shl     edx, 8
+or      edx, esi
+movzx   esi, byte ptr [eax-2]
+shl     edx, 8
+or      edx, esi
+cmp     ecx, 10h
+mov     [esp+ecx*4+158h+var_144], edx
+jl      loc_403B56"]
+Node2 [label = "lea     eax, [esp+158h+var_120]
+mov     ebx, 10h"]
+Node3 [label = "mov     ecx, [eax-20h]
+xor     ecx, [eax+14h]
+mov     ebp, [eax-1Ch]
+xor     ebp, [eax+18h]
+xor     ecx, [eax]
+xor     ebp, [eax+4]
+mov     edx, [eax-18h]
+mov     esi, [eax-14h]
+xor     ecx, edx
+xor     ebp, esi
+rol     ecx, 1
+rol     ebp, 1
+mov     [eax+24h], ebp
+mov     ebp, [eax+1Ch]
+xor     ebp, [eax-10h]
+mov     [eax+20h], ecx
+xor     ebp, [eax+8]
+add     eax, 10h
+xor     ebp, edx
+mov     edx, [eax-1Ch]
+xor     edx, [eax-4]
+rol     ebp, 1
+xor     edx, ecx
+xor     edx, esi
+rol     edx, 1
+sub     ebx, 1
+mov     [eax+18h], ebp
+mov     [eax+1Ch], edx
+jnz     short loc_403BE6"]
+Node4 [label = "mov     esi, [edi]
+mov     eax, [edi+4]
+mov     ecx, [edi+8]
+mov     edx, [edi+0Ch]
+mov     edi, [edi+10h]
+mov     [esp+158h+var_148], edi
+mov     [esp+158h+var_144], 0
+lea     esp, [esp+0]"]
+Node5 [label = "mov     ebx, eax
+mov     edi, esi
+rol     edi, 5
+mov     ebp, ecx
+and     ebp, eax
+not     ebx
+and     ebx, edx
+or      ebx, ebp
+mov     ebp, [esp+158h+var_148]
+add     edi, ebx
+mov     ebx, [esp+158h+var_144]
+add     edi, [esp+ebx*4+158h+var_140]
+ror     eax, 2
+lea     edi, [edi+ebp+5A827999h]
+mov     ebp, eax
+and     ebp, esi
+mov     [esp+158h+var_148], edx
+mov     edx, esi
+not     edx
+and     edx, ecx
+or      edx, ebp
+mov     [esp+158h+var_144], edi
+rol     edi, 5
+add     edi, edx
+add     edi, [esp+ebx*4+158h+var_13C]
+mov     edx, [esp+158h+var_148]
+ror     esi, 2
+lea     edx, [edi+edx+5A827999h]
+mov     edi, eax
+mov     [esp+158h+var_148], ecx
+mov     ecx, [esp+158h+var_144]
+mov     ebp, esi
+and     ebp, ecx
+mov     eax, ecx
+not     eax
+and     eax, edi
+or      eax, ebp
+mov     [esp+158h+var_144], edx
+rol     edx, 5
+add     edx, eax
+add     edx, [esp+ebx*4+158h+var_138]
+mov     eax, [esp+158h+var_148]
+lea     eax, [edx+eax+5A827999h]
+mov     edx, [esp+158h+var_144]
+mov     ebp, esi
+ror     ecx, 2
+mov     [esp+158h+var_144], eax
+rol     eax, 5
+mov     [esp+158h+var_148], edi
+mov     esi, edx
+not     esi
+and     esi, ebp
+mov     edi, ecx
+and     edi, edx
+or      esi, edi
+add     eax, esi
+add     eax, [esp+ebx*4+158h+var_134]
+mov     esi, [esp+158h+var_148]
+lea     esi, [eax+esi+5A827999h]
+mov     edi, ecx
+mov     ecx, [esp+158h+var_144]
+ror     edx, 2
+mov     [esp+158h+var_148], ebp
+mov     eax, ecx
+not     eax
+mov     [esp+158h+var_144], esi
+and     eax, edi
+rol     esi, 5
+mov     ebp, edx
+and     ebp, ecx
+or      eax, ebp
+add     esi, eax
+add     esi, [esp+ebx*4+158h+var_130]
+mov     eax, [esp+158h+var_148]
+add     ebx, 5
+lea     esi, [esi+eax+5A827999h]
+mov     eax, [esp+158h+var_144]
+ror     ecx, 2
+mov     [esp+158h+var_148], edi
+mov     [esp+158h+var_144], ebx
+cmp     ebx, 14h
+jl      loc_403C50"]
+Node6 [label = "mov     ebx, 14h"]
+Node7 [label = "mov     edi, esi
+rol     edi, 5
+mov     ebp, edx
+xor     ebp, ecx
+xor     ebp, eax
+add     edi, ebp
+add     edi, [esp+ebx*4+158h+var_140]
+mov     ebp, [esp+158h+var_148]
+ror     eax, 2
+lea     edi, [edi+ebp+6ED9EBA1h]
+mov     ebp, ecx
+xor     ebp, eax
+xor     ebp, esi
+mov     [esp+158h+var_144], edi
+rol     edi, 5
+add     edi, ebp
+add     edi, [esp+ebx*4+158h+var_13C]
+ror     esi, 2
+lea     edx, [edi+edx+6ED9EBA1h]
+mov     edi, eax
+xor     eax, esi
+mov     ebp, ecx
+mov     ecx, [esp+158h+var_144]
+xor     eax, ecx
+mov     [esp+158h+var_144], edx
+rol     edx, 5
+add     edx, eax
+add     edx, [esp+ebx*4+158h+var_138]
+ror     ecx, 2
+lea     eax, [edx+ebp+6ED9EBA1h]
+mov     edx, [esp+158h+var_144]
+mov     [esp+158h+var_144], eax
+rol     eax, 5
+mov     ebp, edi
+mov     edi, esi
+xor     esi, ecx
+xor     esi, edx
+add     eax, esi
+add     eax, [esp+ebx*4+158h+var_134]
+ror     edx, 2
+lea     esi, [eax+ebp+6ED9EBA1h]
+mov     eax, ecx
+mov     ecx, [esp+158h+var_144]
+mov     [esp+158h+var_144], esi
+mov     ebp, eax
+rol     esi, 5
+xor     ebp, edx
+xor     ebp, ecx
+add     esi, ebp
+add     esi, [esp+ebx*4+158h+var_130]
+add     ebx, 5
+ror     ecx, 2
+cmp     ebx, 28h
+mov     [esp+158h+var_148], eax
+mov     eax, [esp+158h+var_144]
+lea     esi, [esi+edi+6ED9EBA1h]
+jl      loc_403D54"]
+Node8 [label = "mov     [esp+158h+var_144], 28h"]
+Node9 [label = "mov     edi, esi
+rol     edi, 5
+add     edi, [esp+158h+var_148]
+mov     ebx, ecx
+or      ebx, eax
+and     ebx, edx
+mov     ebp, ecx
+and     ebp, eax
+or      ebx, ebp
+mov     ebp, [esp+158h+var_144]
+add     ebx, [esp+ebp*4+158h+var_140]
+ror     eax, 2
+mov     [esp+158h+var_148], edx
+lea     edi, [ebx+edi-70E44324h]
+mov     edx, eax
+or      edx, esi
+and     edx, ecx
+mov     ebp, edi
+rol     edi, 5
+add     edi, [esp+158h+var_148]
+mov     ebx, eax
+and     ebx, esi
+or      edx, ebx
+mov     ebx, [esp+158h+var_144]
+add     edx, [esp+ebx*4+158h+var_13C]
+ror     esi, 2
+lea     edx, [edx+edi-70E44324h]
+mov     edi, esi
+mov     [esp+158h+var_148], ecx
+mov     ecx, ebp
+or      edi, ecx
+and     edi, eax
+mov     ebp, esi
+and     ebp, ecx
+or      edi, ebp
+add     edi, [esp+ebx*4+158h+var_138]
+mov     [esp+158h+var_144], edx
+rol     edx, 5
+add     edx, [esp+158h+var_148]
+ror     ecx, 2
+mov     [esp+158h+var_148], eax
+mov     eax, [esp+158h+var_144]
+lea     edx, [edi+edx-70E44324h]
+mov     edi, esi
+mov     esi, ecx
+or      esi, eax
+and     esi, edi
+mov     ebp, ecx
+and     ebp, eax
+or      esi, ebp
+add     esi, [esp+ebx*4+158h+var_134]
+mov     [esp+158h+var_144], edx
+rol     edx, 5
+add     edx, [esp+158h+var_148]
+ror     eax, 2
+lea     esi, [esi+edx-70E44324h]
+mov     edx, eax
+mov     ebp, ecx
+mov     ecx, [esp+158h+var_144]
+or      eax, ecx
+mov     [esp+158h+var_148], edi
+and     eax, ebp
+mov     [esp+158h+var_144], esi
+mov     edi, edx
+and     edi, ecx
+rol     esi, 5
+add     esi, [esp+158h+var_148]
+or      eax, edi
+add     eax, [esp+ebx*4+158h+var_130]
+add     ebx, 5
+lea     esi, [eax+esi-70E44324h]
+mov     eax, [esp+158h+var_144]
+ror     ecx, 2
+cmp     ebx, 3Ch
+mov     [esp+158h+var_148], ebp
+mov     [esp+158h+var_144], ebx
+jl      loc_403E15"]
+Node10 [label = "mov     edi, 3Ch
+mov     [esp+158h+var_144], edi"]
+Node11 [label = "mov     ebp, edx
+xor     ebp, ecx
+xor     ebp, eax
+add     ebp, [esp+edi*4+158h+var_140]
+mov     edi, [esp+158h+var_144]
+mov     ebx, esi
+rol     ebx, 5
+add     ebx, [esp+158h+var_148]
+ror     eax, 2
+lea     ebx, [ebx+ebp-359D3E2Ah]
+mov     [esp+158h+var_148], edx
+mov     edx, ecx
+xor     edx, eax
+xor     edx, esi
+add     edx, [esp+edi*4+158h+var_13C]
+mov     ebp, ebx
+rol     ebx, 5
+add     ebx, [esp+158h+var_148]
+ror     esi, 2
+lea     edx, [edx+ebx-359D3E2Ah]
+mov     ebx, eax
+xor     eax, esi
+mov     [esp+158h+var_148], ecx
+mov     ecx, ebp
+xor     eax, ecx
+add     eax, [esp+edi*4+158h+var_138]
+mov     ebp, edx
+rol     edx, 5
+add     edx, [esp+158h+var_148]
+ror     ecx, 2
+lea     eax, [eax+edx-359D3E2Ah]
+mov     edx, ebp
+mov     [esp+158h+var_148], ebx
+mov     ebx, esi
+xor     esi, ecx
+xor     esi, edx
+add     esi, [esp+edi*4+158h+var_134]
+mov     ebp, eax
+rol     eax, 5
+add     eax, [esp+158h+var_148]
+ror     edx, 2
+lea     esi, [esi+eax-359D3E2Ah]
+mov     eax, ecx
+mov     ecx, ebp
+mov     ebp, eax
+xor     ebp, edx
+mov     [esp+158h+var_148], ebx
+mov     ebx, esi
+rol     esi, 5
+add     esi, [esp+158h+var_148]
+xor     ebp, ecx
+add     ebp, [esp+edi*4+158h+var_130]
+add     edi, 5
+lea     esi, [esi+ebp-359D3E2Ah]
+ror     ecx, 2
+cmp     edi, 50h
+mov     ebp, eax
+mov     [esp+158h+var_148], eax
+mov     eax, ebx
+mov     [esp+158h+var_144], edi
+jl      loc_403F11"]
+Node12 [label = "mov     edi, [esp+158h+arg_0]
+mov     ebx, [edi]
+add     ebx, esi
+mov     esi, [edi+4]
+add     esi, eax
+mov     eax, [edi+8]
+add     eax, ecx
+mov     [edi+8], eax
+mov     eax, [edi+0Ch]
+add     eax, edx
+mov     [edi+0Ch], eax
+mov     eax, [edi+10h]
+add     eax, ebp
+mov     [edi], ebx
+mov     [edi+4], esi
+mov     [edi+10h], eax
+mov     dword ptr [edi+5Ch], 0
+pop     edi
+pop     esi
+pop     ebp
+pop     ebx
+add     esp, 148h
+retn"]
+Node0 -> Node1 [color = "black"]
+Node1 -> Node2 [color = "red"]
+Node1 -> Node1 [color = "green"]
+Node2 -> Node3 [color = "black"]
+Node3 -> Node4 [color = "red"]
+Node3 -> Node3 [color = "green"]
+Node4 -> Node5 [color = "black"]
+Node5 -> Node6 [color = "red"]
+Node5 -> Node5 [color = "green"]
+Node6 -> Node7 [color = "black"]
+Node7 -> Node8 [color = "red"]
+Node7 -> Node7 [color = "green"]
+Node8 -> Node9 [color = "black"]
+Node9 -> Node10 [color = "red"]
+Node9 -> Node9 [color = "green"]
+Node10 -> Node11 [color = "black"]
+Node11 -> Node12 [color = "red"]
+Node11 -> Node11 [color = "green"]
+}

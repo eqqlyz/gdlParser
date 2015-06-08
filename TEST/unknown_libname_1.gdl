@@ -1,0 +1,478 @@
+graph: {
+title: "unknown_libname_1"
+manhattan_edges: yes
+layoutalgorithm: mindepth
+finetuning: no
+layout_downfactor: 100
+layout_upfactor: 0
+layout_nearfactor: 0
+xlspace: 12
+yspace: 30
+// IDA palette
+colorentry 32: 0 0 0
+colorentry 33: 0 0 255
+colorentry 34: 0 0 255
+colorentry 35: 128 128 128
+colorentry 36: 128 128 128
+colorentry 37: 0 0 128
+colorentry 38: 0 0 128
+colorentry 39: 0 0 255
+colorentry 40: 0 0 255
+colorentry 41: 0 0 128
+colorentry 42: 0 128 0
+colorentry 43: 0 255 0
+colorentry 44: 0 128 0
+colorentry 45: 255 128 0
+colorentry 46: 0 128 0
+colorentry 47: 128 128 255
+colorentry 48: 255 0 0
+colorentry 49: 128 128 0
+colorentry 50: 1 1 1
+colorentry 51: 192 192 192
+colorentry 52: 0 0 255
+colorentry 53: 0 0 255
+colorentry 54: 0 0 255
+colorentry 55: 128 128 128
+colorentry 56: 128 128 255
+colorentry 57: 0 128 0
+colorentry 58: 0 0 128
+colorentry 59: 0 0 255
+colorentry 60: 128 0 128
+colorentry 61: 0 128 0
+colorentry 62: 0 128 0
+colorentry 63: 0 128 64
+colorentry 64: 0 0 128
+colorentry 65: 0 0 128
+colorentry 66: 255 0 255
+colorentry 67: 128 128 0
+colorentry 68: 0 0 128
+colorentry 69: 0 0 255
+colorentry 70: 0 0 128
+colorentry 71: 0 0 255
+colorentry 72: 0 0 0
+colorentry 73: 255 255 255
+colorentry 74: 192 192 192
+colorentry 75: 0 255 255
+colorentry 76: 0 0 0
+colorentry 77: 128 0 0
+colorentry 78: 128 128 128
+colorentry 79: 128 128 0
+colorentry 80: 255 0 255
+colorentry 81: 0 0 0
+colorentry 82: 0 0 255
+colorentry 83: 0 0 0
+node: { title: "0" label: "56unknown_libname_131:
+push    ebp
+mov     ebp, esp
+push    edi
+push    esi
+mov     esi, [ebp+arg_4]
+mov     ecx, [ebp+arg_8]
+mov     edi, [ebp+arg_0]
+mov     eax, ecx
+mov     edx, ecx
+add     eax, esi
+cmp     edi, esi
+jbe     short unknown_libname_2; Microsoft VisualC 2-10/net runtime" vertical_order: 0 }
+node: { title: "1" label: "cmp     edi, eax
+jb      unknown_libname_22; Microsoft VisualC 2-10/net runtime" }
+node: { title: "2" label: "cmp     ecx, 100h       ; Microsoft VisualC 2-10/net runtime
+jb      short unknown_libname_3; Microsoft VisualC 2-10/net runtime" }
+node: { title: "3" label: "cmp     dword_4E629C, 0
+jz      short unknown_libname_3; Microsoft VisualC 2-10/net runtime" }
+node: { title: "4" label: "push    edi
+push    esi
+and     edi, 0Fh
+and     esi, 0Fh
+cmp     edi, esi
+pop     esi
+pop     edi
+jnz     short unknown_libname_3; Microsoft VisualC 2-10/net runtime" }
+node: { title: "5" label: "pop     esi
+pop     edi
+pop     ebp
+jmp     __VEC_memcpy" }
+node: { title: "6" label: "test    edi, 3          ; Microsoft VisualC 2-10/net runtime
+jnz     short unknown_libname_4; Microsoft VisualC 2-10/net runtime" }
+node: { title: "7" label: "shr     ecx, 2
+and     edx, 3
+cmp     ecx, 8
+jb      short unknown_libname_6; Microsoft VisualC 2-10/net runtime" }
+node: { title: "8" label: "rep movsd
+jmp     ds:off_442304[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "9" label: "mov     eax, edi        ; Microsoft VisualC 2-10/net runtime
+mov     edx, 3
+sub     ecx, 4
+jb      short unknown_libname_5; Microsoft VisualC 2-10/net runtime" }
+node: { title: "10" label: "and     eax, 3
+add     ecx, eax
+jmp     dword ptr ds:unknown_libname_6+4[eax*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "11" label: "jmp     dword ptr ds:unknown_libname_18[ecx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "12" label: "jmp     ds:off_442298[ecx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "13" label: "and     edx, ecx        ; Microsoft VisualC 2-10/net runtime
+mov     al, [esi]
+mov     [edi], al
+mov     al, [esi+1]
+mov     [edi+1], al
+mov     al, [esi+2]
+shr     ecx, 2
+mov     [edi+2], al
+add     esi, 3
+add     edi, 3
+cmp     ecx, 8
+jb      short unknown_libname_6; Microsoft VisualC 2-10/net runtime" }
+node: { title: "14" label: "rep movsd
+jmp     ds:off_442304[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "15" label: "and     edx, ecx        ; Microsoft VisualC 2-10/net runtime
+mov     al, [esi]
+mov     [edi], al
+mov     al, [esi+1]
+shr     ecx, 2
+mov     [edi+1], al
+add     esi, 2
+add     edi, 2
+cmp     ecx, 8
+jb      short unknown_libname_6; Microsoft VisualC 2-10/net runtime" }
+node: { title: "16" label: "rep movsd
+jmp     ds:off_442304[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "17" label: "and     edx, ecx        ; Microsoft VisualC 2-10/net runtime
+mov     al, [esi]
+mov     [edi], al
+add     esi, 1
+shr     ecx, 2
+add     edi, 1
+cmp     ecx, 8
+jb      short unknown_libname_6; Microsoft VisualC 2-10/net runtime" }
+node: { title: "18" label: "rep movsd
+jmp     ds:off_442304[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "19" label: "mov     eax, [esi+ecx*4-1Ch]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-1Ch], eax" }
+node: { title: "20" label: "mov     eax, [esi+ecx*4-18h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-18h], eax" }
+node: { title: "21" label: "mov     eax, [esi+ecx*4-14h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-14h], eax" }
+node: { title: "22" label: "mov     eax, [esi+ecx*4-10h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-10h], eax" }
+node: { title: "23" label: "mov     eax, [esi+ecx*4-0Ch]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-0Ch], eax" }
+node: { title: "24" label: "mov     eax, [esi+ecx*4-8]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-8], eax" }
+node: { title: "25" label: "mov     eax, [esi+ecx*4-4]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4-4], eax
+lea     eax, ds:0[ecx*4]
+add     esi, eax
+add     edi, eax" }
+node: { title: "26" label: "jmp     ds:off_442304[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "27" label: "mov     eax, [ebp+arg_0]; Microsoft VisualC 2-10/net runtime
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "28" label: "mov     al, [esi]       ; Microsoft VisualC 2-10/net runtime
+mov     [edi], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "29" label: "mov     al, [esi]       ; Microsoft VisualC 2-10/net runtime
+mov     [edi], al
+mov     al, [esi+1]
+mov     [edi+1], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "30" label: "mov     al, [esi]       ; Microsoft VisualC 2-10/net runtime
+mov     [edi], al
+mov     al, [esi+1]
+mov     [edi+1], al
+mov     al, [esi+2]
+mov     [edi+2], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "31" label: "lea     esi, [ecx+esi-4]; Microsoft VisualC 2-10/net runtime
+lea     edi, [ecx+edi-4]
+test    edi, 3
+jnz     short unknown_libname_24; Microsoft VisualC 2-10/net runtime" }
+node: { title: "32" label: "shr     ecx, 2
+and     edx, 3
+cmp     ecx, 8
+jb      short unknown_libname_23; Microsoft VisualC 2-10/net runtime" }
+node: { title: "33" label: "std
+rep movsd
+cld
+jmp     ds:off_4424A0[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "34" label: "neg     ecx             ; Microsoft VisualC 2-10/net runtime
+jmp     ds:off_442450[ecx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "35" label: "mov     eax, edi        ; Microsoft VisualC 2-10/net runtime
+mov     edx, 3
+cmp     ecx, 4
+jb      short unknown_libname_25; Microsoft VisualC 2-10/net runtime" }
+node: { title: "36" label: "and     eax, 3
+sub     ecx, eax
+jmp     dword ptr ds:unknown_libname_25+4[eax*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "37" label: "jmp     ds:off_4424A0[ecx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "38" label: "mov     ah, 23h
+inc     esp
+add     al, bl
+and     eax, [eax+eax+0]
+and     al, 44h
+add     [edx-2EDCFCBAh], cl
+mov     [edi+3], al
+sub     esi, 1
+shr     ecx, 2
+sub     edi, 1
+cmp     ecx, 8
+jb      short unknown_libname_23; Microsoft VisualC 2-10/net runtime" }
+node: { title: "39" label: "std
+rep movsd
+cld
+jmp     ds:off_4424A0[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "40" label: "58unknown_libname_2731:
+mov     al, [esi+3]     ; Microsoft VisualC 2-10/net runtime
+and     edx, ecx
+mov     [edi+3], al
+mov     al, [esi+2]
+shr     ecx, 2
+mov     [edi+2], al
+sub     esi, 2
+sub     edi, 2
+cmp     ecx, 8
+jb      short unknown_libname_23; Microsoft VisualC 2-10/net runtime" }
+node: { title: "41" label: "std
+rep movsd
+cld
+jmp     ds:off_4424A0[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "42" label: "58unknown_libname_2831:
+mov     al, [esi+3]     ; Microsoft VisualC 2-10/net runtime
+and     edx, ecx
+mov     [edi+3], al
+mov     al, [esi+2]
+mov     [edi+2], al
+mov     al, [esi+1]
+shr     ecx, 2
+mov     [edi+1], al
+sub     esi, 3
+sub     edi, 3
+cmp     ecx, 8
+jb      unknown_libname_23; Microsoft VisualC 2-10/net runtime" }
+node: { title: "43" label: "std
+rep movsd
+cld
+jmp     ds:off_4424A0[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "44" label: "mov     eax, [esi+ecx*4+1Ch]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+1Ch], eax" }
+node: { title: "45" label: "mov     eax, [esi+ecx*4+18h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+18h], eax" }
+node: { title: "46" label: "mov     eax, [esi+ecx*4+14h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+14h], eax" }
+node: { title: "47" label: "mov     eax, [esi+ecx*4+10h]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+10h], eax" }
+node: { title: "48" label: "mov     eax, [esi+ecx*4+0Ch]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+0Ch], eax" }
+node: { title: "49" label: "mov     eax, [esi+ecx*4+8]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+8], eax" }
+node: { title: "50" label: "mov     eax, [esi+ecx*4+4]; Microsoft VisualC 2-10/net runtime
+mov     [edi+ecx*4+4], eax
+lea     eax, ds:0[ecx*4]
+add     esi, eax
+add     edi, eax" }
+node: { title: "51" label: "jmp     ds:off_4424A0[edx*4]; Microsoft VisualC 2-10/net runtime" }
+node: { title: "52" label: "mov     eax, [ebp+arg_0]; Microsoft VisualC 2-10/net runtime
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "53" label: "mov     al, [esi+3]     ; Microsoft VisualC 2-10/net runtime
+mov     [edi+3], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "54" label: "mov     al, [esi+3]     ; Microsoft VisualC 2-10/net runtime
+mov     [edi+3], al
+mov     al, [esi+2]
+mov     [edi+2], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "55" label: "mov     al, [esi+3]     ; Microsoft VisualC 2-10/net runtime
+mov     [edi+3], al
+mov     al, [esi+2]
+mov     [edi+2], al
+mov     al, [esi+1]
+mov     [edi+1], al
+mov     eax, [ebp+arg_0]
+pop     esi
+pop     edi
+leave
+retn" }
+node: { title: "56" label: "__VEC_memcpy" color: red }
+// node 0
+edge: { sourcename: "0" targetname: "1" label: "false" color: red }
+edge: { sourcename: "0" targetname: "2" label: "true" color: darkgreen }
+// node 1
+edge: { sourcename: "1" targetname: "2" label: "false" color: red }
+edge: { sourcename: "1" targetname: "31" label: "true" color: darkgreen }
+// node 2
+edge: { sourcename: "2" targetname: "3" label: "false" color: red }
+edge: { sourcename: "2" targetname: "6" label: "true" color: darkgreen }
+// node 3
+edge: { sourcename: "3" targetname: "4" label: "false" color: red }
+edge: { sourcename: "3" targetname: "6" label: "true" color: darkgreen }
+// node 4
+edge: { sourcename: "4" targetname: "5" label: "false" color: red }
+edge: { sourcename: "4" targetname: "6" label: "true" color: darkgreen }
+// node 5
+edge: { sourcename: "5" targetname: "56" }
+// node 6
+edge: { sourcename: "6" targetname: "7" label: "false" color: red }
+edge: { sourcename: "6" targetname: "9" label: "true" color: darkgreen }
+// node 7
+edge: { sourcename: "7" targetname: "8" label: "false" color: red }
+edge: { sourcename: "7" targetname: "12" label: "true" color: darkgreen }
+// node 8
+edge: { sourcename: "8" targetname: "27" }
+edge: { sourcename: "8" targetname: "28" }
+edge: { sourcename: "8" targetname: "29" }
+edge: { sourcename: "8" targetname: "30" }
+// node 9
+edge: { sourcename: "9" targetname: "10" label: "false" color: red }
+edge: { sourcename: "9" targetname: "11" label: "true" color: darkgreen }
+// node 10
+// node 11
+// node 12
+edge: { sourcename: "12" targetname: "19" }
+edge: { sourcename: "12" targetname: "20" }
+edge: { sourcename: "12" targetname: "21" }
+edge: { sourcename: "12" targetname: "22" }
+edge: { sourcename: "12" targetname: "23" }
+edge: { sourcename: "12" targetname: "24" }
+edge: { sourcename: "12" targetname: "25" }
+edge: { sourcename: "12" targetname: "26" }
+// node 13
+edge: { sourcename: "13" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "13" targetname: "14" label: "false" color: red }
+// node 14
+edge: { sourcename: "14" targetname: "27" }
+edge: { sourcename: "14" targetname: "28" }
+edge: { sourcename: "14" targetname: "29" }
+edge: { sourcename: "14" targetname: "30" }
+// node 15
+edge: { sourcename: "15" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "15" targetname: "16" label: "false" color: red }
+// node 16
+edge: { sourcename: "16" targetname: "27" }
+edge: { sourcename: "16" targetname: "28" }
+edge: { sourcename: "16" targetname: "29" }
+edge: { sourcename: "16" targetname: "30" }
+// node 17
+edge: { sourcename: "17" targetname: "12" label: "true" color: darkgreen }
+edge: { sourcename: "17" targetname: "18" label: "false" color: red }
+// node 18
+edge: { sourcename: "18" targetname: "27" }
+edge: { sourcename: "18" targetname: "28" }
+edge: { sourcename: "18" targetname: "29" }
+edge: { sourcename: "18" targetname: "30" }
+// node 19
+edge: { sourcename: "19" targetname: "20" }
+// node 20
+edge: { sourcename: "20" targetname: "21" }
+// node 21
+edge: { sourcename: "21" targetname: "22" }
+// node 22
+edge: { sourcename: "22" targetname: "23" }
+// node 23
+edge: { sourcename: "23" targetname: "24" }
+// node 24
+edge: { sourcename: "24" targetname: "25" }
+// node 25
+edge: { sourcename: "25" targetname: "26" }
+// node 26
+edge: { sourcename: "26" targetname: "27" }
+edge: { sourcename: "26" targetname: "28" }
+edge: { sourcename: "26" targetname: "29" }
+edge: { sourcename: "26" targetname: "30" }
+// node 27
+// node 28
+// node 29
+// node 30
+// node 31
+edge: { sourcename: "31" targetname: "32" label: "false" color: red }
+edge: { sourcename: "31" targetname: "35" label: "true" color: darkgreen }
+// node 32
+edge: { sourcename: "32" targetname: "33" label: "false" color: red }
+edge: { sourcename: "32" targetname: "34" label: "true" color: darkgreen }
+// node 33
+edge: { sourcename: "33" targetname: "52" }
+edge: { sourcename: "33" targetname: "53" }
+edge: { sourcename: "33" targetname: "54" }
+edge: { sourcename: "33" targetname: "55" }
+// node 34
+edge: { sourcename: "34" targetname: "51" }
+// node 35
+edge: { sourcename: "35" targetname: "36" label: "false" color: red }
+edge: { sourcename: "35" targetname: "37" label: "true" color: darkgreen }
+// node 36
+// node 37
+edge: { sourcename: "37" targetname: "52" }
+edge: { sourcename: "37" targetname: "53" }
+edge: { sourcename: "37" targetname: "54" }
+edge: { sourcename: "37" targetname: "55" }
+// node 38
+edge: { sourcename: "38" targetname: "34" label: "true" color: darkgreen }
+edge: { sourcename: "38" targetname: "39" label: "false" color: red }
+// node 39
+edge: { sourcename: "39" targetname: "52" }
+edge: { sourcename: "39" targetname: "53" }
+edge: { sourcename: "39" targetname: "54" }
+edge: { sourcename: "39" targetname: "55" }
+// node 40
+edge: { sourcename: "40" targetname: "34" label: "true" color: darkgreen }
+edge: { sourcename: "40" targetname: "41" label: "false" color: red }
+// node 41
+edge: { sourcename: "41" targetname: "52" }
+edge: { sourcename: "41" targetname: "53" }
+edge: { sourcename: "41" targetname: "54" }
+edge: { sourcename: "41" targetname: "55" }
+// node 42
+edge: { sourcename: "42" targetname: "34" label: "true" color: darkgreen }
+edge: { sourcename: "42" targetname: "43" label: "false" color: red }
+// node 43
+edge: { sourcename: "43" targetname: "52" }
+edge: { sourcename: "43" targetname: "53" }
+edge: { sourcename: "43" targetname: "54" }
+edge: { sourcename: "43" targetname: "55" }
+// node 44
+edge: { sourcename: "44" targetname: "45" }
+// node 45
+edge: { sourcename: "45" targetname: "46" }
+// node 46
+edge: { sourcename: "46" targetname: "47" }
+// node 47
+edge: { sourcename: "47" targetname: "48" }
+// node 48
+edge: { sourcename: "48" targetname: "49" }
+// node 49
+edge: { sourcename: "49" targetname: "50" }
+// node 50
+edge: { sourcename: "50" targetname: "51" }
+// node 51
+edge: { sourcename: "51" targetname: "52" }
+edge: { sourcename: "51" targetname: "53" }
+edge: { sourcename: "51" targetname: "54" }
+edge: { sourcename: "51" targetname: "55" }
+// node 52
+// node 53
+// node 54
+// node 55
+// node 56
+}
