@@ -11,3 +11,5 @@ GDLTreeNode.h contains the GDLTreeNode class which represents each node in gdl f
 Makefile is employed to compile the project.
 
 TEST directory contains some testsuites.
+
+TEST/DOT directory contains the dot files outputed by the gdlParser.
