@@ -63,6 +63,11 @@ enum EDGECOLOR{
 	BLACK
 };
 
+enum NODECOLOR{
+	RED_N = 1,
+	DARKGREEN_N,
+	BLACK_N
+};
 // 
 struct rgbColor{
   int rColor;
@@ -123,7 +128,7 @@ public:
 	/**/
 	void setRank(string tmp){ rank  = stoi(tmp);	 }
 	/**/
-	unsigned int getRank(){  return rank;}
+	int getRank(){  return rank;}
 	/**/
 	void setLabel(string tmp){ label  = tmp;	}
 	/**/
@@ -195,6 +200,18 @@ public:
 	/*vertical order*/
 	void setVertical_order(int ld){ vertical_order = ld;}
 	int getVertical_order(){ return vertical_order;}	
+	/*nodeColor*/
+	void setNodeColor(string la){ 
+		if(la == "red"){
+		  nodeColor = RED_N;
+		}else if(la == "darkgreen"){
+		  nodeColor = DARKGREEN_N;
+		}else{
+		  nodeColor = BLACK_N;
+		}
+	}
+	/*NODEColor*/
+	NODECOLOR getNodeColor(){return nodeColor;}	
 	
 	
 private:
@@ -208,7 +225,7 @@ private:
 	/**/
 	string title;
 	/**/
-	unsigned int rank;
+	int rank;
 	/*label*/
 	string label;
 	/*manhattan_edges*/
@@ -238,6 +255,8 @@ private:
 	int targetname;
 	/**/
 	EDGECOLOR edgeColor;
+	/**/
+	NODECOLOR nodeColor;
 	/*------------*/
 };
 

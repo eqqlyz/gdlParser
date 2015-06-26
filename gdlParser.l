@@ -10,6 +10,7 @@
 %{
 
 #include "GDLTreeNode.h"
+#include "Cfg.h"
 
 /*定义yylval的类型*/
 union {
@@ -24,6 +25,16 @@ char* curr_filename = NULL;
 
 //存储整个graph树的根
 GDLTreeNode* gdlRoot;
+GDLTreeNode *currNode = NULL;
+//存储控制流图
+Cfg *cfg;
+
+//函数申明
+GDLTreeNode* buildGDLTree(char* argv);
+void printGDLTree(char* outFile);
+Cfg* buildCFG(string inFile);
+//控制流分析
+
 
 %}
 
@@ -95,19 +106,73 @@ GDLTreeNode* gdlRoot;
 %%
 // Main function
 main(int argc, char** argv){
-  int tok;
-  
+  //Store the two cfgs
+  Cfg *srcCfg, *dstCfg;
+  FILE* fin;
   // Set file as the standard input
-  if(argc > 1) {
-    if(!(yyin = fopen(argv[1], "r"))) {
+  if(argc == 3) {
+    if(!(fin = fopen(argv[1], "r"))) {
       printf("Error: can't open file %s\n",argv[1]);
       return (1);
+    }else{
+      yyrestart(fin);
+      //Construct the first CFG
+      gdlRoot = buildGDLTree(argv[1]);
+      if(gdlRoot == NULL){
+        fprintf(stderr,"Incomplete analysis of file %s\n",argv[2]);
+        return 1;
+      }      
+      strcpy(&argv[1][0] + strlen(argv[1]) - 4,"\0");
+      srcCfg = buildCFG(argv[1]);
+      srcCfg->label2AsmList();
+      fclose(fin);
+      // Need to clean gdlRoot
+    }
+    if(!(fin = fopen(argv[2], "r"))){
+      printf("Error: can't open file %s\n",argv[2]);
+      return (1);      
+    }else{
+      yyrestart(fin);
+      //Construct the second CFG
+      gdlRoot = NULL;
+      gdlRoot = buildGDLTree(argv[2]);
+      if(gdlRoot == NULL){
+        fprintf(stderr,"Incomplete analysis of file %s\n",argv[2]);
+        return 1;
+      }
+      strcpy(&argv[2][0] + strlen(argv[2]) - 4,"\0");
+      dstCfg = buildCFG(argv[2]);
+      dstCfg->label2AsmList();
+      fclose(fin);
+      // Need to clean gdlRoot
     }
   }
+  //TEST PART
+  // 1. Test the parser
+  /*fin = fopen("test.out","a");
+  srcCfg->printCFG(fin);
+  fclose(fin);*/
+  // 2. Test the instruction set
+  /*fin = fopen("undef.txt","a");
+  srcCfg->undefOpcodes(fin,argv[1]);
+  fclose(fin);*/
+  // 2. Test the instruction vector
+  /*srcCfg->setInstructionType();
+  fin = fopen("undef.txt","a");
+  srcCfg->printInstVector(fin,argv[1]);
+  fclose(fin);*/
+  // Start the similarity calculation.
+}
+
+/* bug:: 由于对某些模式分析的不是非常到位，因此，需要不断的完善buildGDLTree方法
+*/
+
+GDLTreeNode* buildGDLTree(char* argv){
+  int tok;
   //初始化curr_lineno和curr_filename
   curr_lineno = 0;
-  curr_filename = argv[1];
-  GDLTreeNode *currNode = NULL;
+  curr_filename = argv;
+  GDLTreeNode* gdlRoot;
   //开始遍历整个文件
   while(tok = yylex()) {
     /*分别对待*/
@@ -117,13 +182,13 @@ main(int argc, char** argv){
         gdlRoot->setParent(NULL);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename , curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != LEFT_PARA){
-          printf("Without { at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without '{' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }        
         break;
       case TITLE:
@@ -132,13 +197,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != STR_CONST){
-          printf("Not a string at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置title值
         currNode->setTitle(string(yylval.str));
@@ -149,13 +214,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != SYM_VALUE){
-          printf("Not a symbol at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not a symbol at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置manhattan_edges值
         currNode->setManhattan_edges(string(yylval.str));        
@@ -166,13 +231,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != SYM_VALUE){
-          printf("Not a symbol at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not a symbol at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置layoutalgorithm值
         currNode->setLayoutalgorithm(string(yylval.str));        
@@ -183,13 +248,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != SYM_VALUE){
-          printf("Not a symbol at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not a symbol at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置finetuning值
         currNode->setFinetuning(string(yylval.str));        
@@ -200,13 +265,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置layout_downfactor值
         currNode->setLayout_downfactor(yylval.num);        
@@ -217,13 +282,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置layout_upfactor值
         currNode->setLayout_upfactor(yylval.num);         
@@ -234,13 +299,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置layout_upfactor值
         currNode->setLayout_nearfactor(yylval.num);          
@@ -251,13 +316,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置xlspace值
         currNode->setXlspace(yylval.num);          
@@ -268,13 +333,13 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         //设置yspace值
         currNode->setYspace(yylval.num);         
@@ -285,33 +350,33 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         //设置颜色编号
         currNode->setColorentry(yylval.num);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }  
         int r,g,b;      
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         r = yylval.num;
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         g = yylval.num;
         tok = yylex();
         if(tok != INT_CONST){
-          printf("Not an int at line %d\n",curr_lineno);
-          return 1;        
+          printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+          return NULL;        
         }
         b = yylval.num;                
         //设置colorentry的(r,g,b)值
@@ -323,46 +388,46 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != LEFT_PARA){
-          printf("Without { at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without '{' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != TITLE){
-          printf("Without title at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without title at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }        
         tok = yylex();
         if(tok != STR_CONST){
-          printf("Not a string at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         //设置title和rank
         currNode->setTitle(string(yylval.str));
         currNode->setRank(string(yylval.str));
         tok = yylex();
         if(tok != LABEL){
-          printf("Without label at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without label at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         } 
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }               
         tok = yylex();
         if(tok != STR_CONST){
-          printf("Not a string at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         //设置label
         currNode->setLabel(string(yylval.str));
@@ -372,24 +437,37 @@ main(int argc, char** argv){
         }else if(tok == VERTICAL_ORDER){
           tok = yylex();
           if(tok != COMMA){
-            printf("Without : at line %d\n",curr_lineno);
-            return 1;
+            printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+            return NULL;
           }
           tok = yylex();
           if(tok != INT_CONST){
-            printf("Not an int at line %d\n",curr_lineno);
-            return 1;
+            printf("File '%s' : Not an int at line %d\n",curr_filename,curr_lineno);
+            return NULL;
           }   
           //设置vertical_order
           currNode->setVertical_order(yylval.num);   
           tok = yylex();
           if(tok != RIGHT_PARA){
-            printf("Without } at line %d\n",curr_lineno);
-            return 1;
+            printf("File '%s' : Without '}' at line %d\n",curr_filename,curr_lineno);
+            return NULL;
           }                        
+        }else if(tok == COLOR){
+          tok = yylex();
+          if(tok != COMMA){
+            printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+            return NULL;
+          }
+          tok = yylex();
+          if(tok != SYM_VALUE){
+            printf("File '%s' : Not a symbol at line %d\n",curr_filename,curr_lineno);
+            return NULL;
+          }            
+          //设置color值
+          currNode->setNodeColor(string(yylval.str));        
         }else{
-          printf("Without } at line %d\n",curr_lineno);
-          return 1;          
+          printf("File '%s' : Without '}' at line %d\n",curr_filename,curr_lineno);
+          return NULL;         
         }
         break;
       case EDGE:
@@ -398,45 +476,45 @@ main(int argc, char** argv){
         gdlRoot->insertChild(currNode);
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != LEFT_PARA){
-          printf("Without { at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without '{' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }
         tok = yylex();
         if(tok != SOURCENAME){
-          printf("Not SOURCENAME at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not SOURCENAME at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         } 
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }                  
         tok = yylex();
         if(tok != STR_CONST){
-          printf("Not a string at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }          
         //设置sourcename
         currNode->setSourcename(string(yylval.str));
         tok = yylex();
         if(tok != TARGETNAME){
-          printf("Not TARGETNAME at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not TARGETNAME at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         } 
         tok = yylex();
         if(tok != COMMA){
-          printf("Without : at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }                  
         tok = yylex();
         if(tok != STR_CONST){
-          printf("Not a string at line %d\n",curr_lineno);
-          return 1;
+          printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+          return NULL;
         }          
         //设置sourcename
         currNode->setTargetname(string(yylval.str)); 
@@ -447,35 +525,35 @@ main(int argc, char** argv){
           //说明还有label和color属性
          //tok = yylex();
          if(tok != LABEL){
-           printf("Not a label at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Not a label at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }
          tok = yylex();
          if(tok != COMMA){
-           printf("Without : at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }
          tok = yylex();
          if(tok != STR_CONST){
-           printf("Not a string at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Not a string at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }            
          //设置label值
          currNode->setLabel(string(yylval.str));
          tok = yylex();
          if(tok != COLOR){
-           printf("Not a color at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Not a color at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }
          tok = yylex();
          if(tok != COMMA){
-           printf("Without : at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Without ':' at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }
          tok = yylex();
          if(tok != SYM_VALUE){
-           printf("Not a symbol at line %d\n",curr_lineno);
-           return 1;
+           printf("File '%s' : Not a symbol at line %d\n",curr_filename,curr_lineno);
+           return NULL;
          }            
          //设置color值
          currNode->setEdgeColor(string(yylval.str));       
@@ -485,12 +563,11 @@ main(int argc, char** argv){
         break;
     } // end of switch
   } // end of while
-  //遍历验证
-  char* outFile = argv[1];
-  outFile[strlen(argv[1]) - 1] = 't';
-  outFile[strlen(argv[1]) - 2] = 'o';
-  outFile[strlen(argv[1]) - 3] = 'd';
-  //遍历输出
+  // return the Tree Root
+  return gdlRoot;
+}
+
+void printGDLTree(char* outFile){
   FILE *f = fopen(outFile,"w");
   fprintf(f,"digraph G{\n");
   for(int i = 0; i < gdlRoot->getChildrenNum(); i++){
@@ -510,7 +587,32 @@ main(int argc, char** argv){
       }
     }
   }
-  //关闭文件
+  //Close the file
   fprintf(f,"}");
-  fclose(f); 
+  fclose(f);
+}
+
+Cfg* buildCFG(string inFile){
+  Cfg* cfgx = new Cfg(inFile);
+  for(int i = 0; i < gdlRoot->getChildrenNum(); i++){
+    currNode = gdlRoot->getNthChild(i);
+    if(currNode != NULL){
+      GDLTREENODETYPE nodeType = currNode->getNodeType();
+      if(nodeType == NODE_N){
+        //Construct Basic Block
+        cfgx->insertBB(currNode->getRank(),currNode->getLabel());
+      }else if(nodeType == EDGE_N){
+        //Insert an edge
+        cfgx->insertEdge(currNode->getSourcename(),currNode->getTargetname());
+        if(currNode->getEdgeColor() == RED){
+          //false part      
+        }else if(currNode->getEdgeColor() == DARKGREEN){
+          //true part
+        }else{
+          //a normal one
+        }
+      }
+    }
+  }
+  return cfgx;  
 }
